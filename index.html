@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفلام T - مكتبة الأفلام والفيديوهات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #ff6b6b;
+        }
+
+        header i {
+            margin-left: 15px;
+            color: #ffeb3b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        header span {
+            font-size: 24px;
+            color: #ffeb3b;
+            font-weight: 900;
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 5px;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 30px auto 20px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #searchBar {
+            width: 100%;
+            padding: 18px 50px 18px 25px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        #searchBar:focus {
+            box-shadow: 0 20px 60px rgba(30,136,229,0.4);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1e88e5;
+            font-size: 20px;
+        }
+
+        .stats-bar {
+            text-align: center;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            margin: 0 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #videoContainer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding: 30px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .videoCard {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .videoCard:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 80px rgba(30,136,229,0.4);
+        }
+
+        .videoCard:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .videoCard video {
+            width: 100%;
+            display: block;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 5;
+            border-radius: 20px;
+        }
+
+        .play-btn {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .video-info {
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+        }
+
+        .videoCard h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e88e5;
+            margin-bottom: 10px;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .video-description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .delete-btn {
+            width: 100%;
+            padding: 8px;
+            background: #e53935;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Cairo', sans-serif;
+            display: none;
+        }
+
+        .delete-btn:hover {
+            background: #c62828;
+        }
+
+        .admin-mode .delete-btn {
+            display: block;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state i {
+            font-size: 100px;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+
+        #adminLogin, #adminPanel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+            z-index: 1001;
+            width: 90%;
+            max-width: 450px;
+            animation: modalIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        #adminLogin h3, #adminPanel h3 {
+            text-align: center;
+            color: #1e88e5;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        #adminLogin h3 i, #adminPanel h3 i {
+            display: block;
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #764ba2;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        #adminLogin input, #adminPanel input {
+            padding: 15px 45px 15px 15px;
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            transition: all 0.3s;
+        }
+
+        #adminLogin input:focus, #adminPanel input:focus {
+            border-color: #1e88e5;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(30,136,229,0.1);
+        }
+
+        #adminLogin button, #adminPanel button {
+            padding: 15px;
+            width: 100%;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30,136,229,0.4);
+        }
+
+        .close-btn {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(17,153,142,0.4);
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+            color: white;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(235,51,73,0.4);
+        }
+
+        .admin-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1e88e5;
+        }
+
+        .admin-section h4 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .admin-section h4 i {
+            margin-left: 8px;
+            color: #1e88e5;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: block;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .file-input-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .file-name {
+            margin-top: 8px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            color: #2e7d32;
+            font-size: 14px;
+            display: none;
+        }
+
+        .file-name.show {
+            display: block;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+
+        .admin-float-btn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 15px 50px rgba(30,136,229,0.5);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        .admin-float-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .admin-float-btn.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            #videoContainer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 24px;
+            }
+
+            #videoContainer {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            #adminLogin, #adminPanel {
+                width: 95%;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            #videoContainer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <i class="fas fa-film"></i>
+        أفلام <span>T</span>
+    </div>
+    <div class="header-subtitle">مكتبة الأفلام والفيديوهات المميزة</div>
+</header>
+
+<div class="search-container">
+    <input type="text" id="searchBar" placeholder="ابحث عن فيديو...">
+    <i class="fas fa-search search-icon"></i>
+</div>
+
+<div class="stats-bar" id="statsBar"></div>
+
+<div id="videoContainer"></div>
+
+<div id="overlay" onclick="closeAllModals()"></div>
+
+<div id="adminLogin">
+    <h3>
+        <i class="fas fa-user-shield"></i>
+        تسجيل دخول الأدمن
+    </h3>
+    <div class="input-group">
+        <input type="text" id="adminUser" placeholder="اسم المستخدم">
+        <i class="fas fa-user"></i>
+    </div>
+    <div class="input-group">
+        <input type="password" id="adminPass" placeholder="كلمة المرور">
+        <i class="fas fa-lock"></i>
+    </div>
+    <button class="login-btn" onclick="adminLogin()">
+        <i class="fas fa-sign-in-alt"></i> تسجيل دخول
+    </button>
+    <button class="close-btn" onclick="closeAllModals()">
+        <i class="fas fa-times"></i> إغلاق
+    </button>
+</div>
+
+<div id="adminPanel">
+    <h3>
+        <i class="fas fa-cog"></i>
+        لوحة التحكم
+    </h3>
+
+    <div class="admin-section">
+        <h4><i class="fas fa-plus-circle"></i> إضافة فيديو جديد</h4>
+        <input type="text" id="videoTitle" placeholder="عنوان الفيديو">
+        <input type="text" id="videoDescription" placeholder="وصف الفيديو">
+        <input type="text" id="videoURL" placeholder="رابط الفيديو">
+        <button class="add-btn" onclick="addVideo()">
+            <i class="fas fa-plus"></i> إضافة الفيديو
+        </button>
+    </div>
+
+    <div class="admin-section">
+        <h4><i class="fas fa-mobile-alt"></i> تحميل من الهاتف</h4>
+        <div class="file-input-wrapper">
+            <input type="file" id="videoFile" accept="video/*" onchange="handleFileSelect()">
+            <label for="videoFile" class="file-input-label">
+                <i class="fas fa-cloud-upload-alt"></i> اختر فيديو من الهاتف
+            </label>
+        </div>
+        <div class="file-name" id="fileName"></div>
+        <button class="add-btn" onclick="addVideoFromFile()">
+            <i class="fas fa-upload"></i> تحميل الفيديو
+        </button>
+    </div>
+
+    <button class="logout-btn" onclick="adminLogout()">
+        <i class="fas fa-sign-out-alt"></i> تسجيل خروج
+    </button>
+</div>
+
+<button class="admin-float-btn" id="adminFloatBtn" onclick="openAdminPanel()">
+    <i class="fas fa-cog"></i>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+<script>
+/* 🔹 Firebase Config */
+const firebaseConfig = {
+  apiKey: "AIzaSyAl7BdE6RmWPlLlT3hvDAQSlZLlEiqun_E",
+  authDomain: "unknown-27884.firebaseapp.com",
+  projectId: "unknown-27884",
+  storageBucket: "unknown-27884.appspot.com",
+  messagingSenderId: "253004473329",
+  appId: "1:253004473329:web:f930527c0c5596e1789a50"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+/* 🔹 Admin State */
+let isAdmin = false;
+
+/* 🔹 Load Videos */
+function loadVideos() {
+  db.collection("videos").orderBy("createdAt", "desc").onSnapshot(snapshot => {
+    const videos = [];
+    snapshot.forEach(doc => {
+      videos.push({ id: doc.id, ...doc.data() });
+    });
+    renderVideos(videos);
+    document.getElementById("statsBar").innerHTML =
+      `<i class="fas fa-video"></i> ${videos.length} فيديو في المكتبة`;
+  });
+}
+
+/* 🔹 Upload Video From Phone */
+function addVideoFromFile() {
+  console.log("🚀 بدء عملية الرفع من الهاتف...");
+  
+  const fileInput = document.getElementById("videoFile");
+  const titleInput = document.getElementById("videoTitle");
+  const descInput = document.getElementById("videoDescription");
+
+  const file = fileInput.files[0];
+  const title = titleInput.value.trim();
+  const description = descInput.value.trim();
+
+  console.log("📁 الملف المختار:", file ? file.name : "لا يوجد");
+  console.log("📝 العنوان:", title);
+
+  if (!file || !title) {
+    console.warn("⚠️ نقص في البيانات: يجب اختيار ملف وعنوان");
+    showToast("الرجاء اختيار فيديو وإدخال العنوان", "error");
+    return;
+  }
+
+  showToast("جاري رفع الفيديو...", "success");
+
+  try {
+    const fileName = Date.now() + "_" + file.name;
+    console.log("☁️ جاري الرفع إلى Storage باسم:", fileName);
+    
+    const storageRef = storage.ref("videos/" + fileName);
+    const uploadTask = storageRef.put(file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("📊 تقدم الرفع: " + Math.round(progress) + "%");
+      },
+      (error) => {
+        console.error("❌ خطأ أثناء الرفع إلى Storage:", error);
+        showToast("فشل رفع الملف: " + error.message, "error");
+      },
+      () => {
+        console.log("✅ اكتمل الرفع إلى Storage بنجاح");
+        uploadTask.snapshot.ref.getDownloadURL().then(url => {
+          console.log("🔗 رابط الفيديو المستخرج:", url);
+          
+          console.log("💾 جاري حفظ البيانات في Firestore...");
+          db.collection("videos").add({
+            title: title,
+            description: description,
+            url: url,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          }).then((docRef) => {
+            console.log("🎉 تم الحفظ بنجاح في Firestore! ID:", docRef.id);
+            showToast("تم رفع ونشر الفيديو بنجاح", "success");
+
+            // تنظيف الحقول
+            titleInput.value = "";
+            descInput.value = "";
+            fileInput.value = "";
+            document.getElementById("fileName").classList.remove("show");
+
+            // إغلاق لوحة الأدمن
+            closeAllModals();
+          }).catch((error) => {
+            console.error("❌ خطأ أثناء الحفظ في Firestore:", error);
+            showToast("فشل حفظ البيانات: " + error.message, "error");
+          });
+        }).catch((error) => {
+          console.error("❌ خطأ في استخراج الرابط:", error);
+        });
+      }
+    );
+  } catch (error) {
+    console.error("❌ خطأ غير متوقع:", error);
+    showToast("حدث خطأ غير متوقع", "error");
+  }
+}
+
+/* 🔹 Add Video via URL */
+function addVideo() {
+  console.log("🚀 بدء إضافة فيديو عبر الرابط...");
+  const titleInput = document.getElementById("videoTitle");
+  const descInput = document.getElementById("videoDescription");
+  const urlInput = document.getElementById("videoURL");
+
+  const title = titleInput.value.trim();
+  const description = descInput.value.trim();
+  const url = urlInput.value.trim();
+
+  if (!title || !url) {
+    console.warn("⚠️ نقص في البيانات: يجب إدخال عنوان ورابط");
+    showToast("الرجاء تعبئة العنوان والرابط", "error");
+    return;
+  }
+
+  console.log("💾 جاري حفظ الرابط في Firestore...");
+  db.collection("videos").add({
+    title: title,
+    description: description,
+    url: url,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then((docRef) => {
+    console.log("🎉 تم حفظ الرابط بنجاح! ID:", docRef.id);
+    showToast("تم إضافة الفيديو بنجاح", "success");
+    
+    // تنظيف الحقول
+    titleInput.value = "";
+    descInput.value = "";
+    urlInput.value = "";
+    
+    closeAllModals();
+  }).catch((error) => {
+    console.error("❌ خطأ أثناء إضافة الرابط في Firestore:", error);
+    showToast("فشل الإضافة: " + error.message, "error");
+  });
+}
+
+/* 🔹 Delete Video */
+function deleteVideo(id, url) {
+  if (!isAdmin) return;
+  if (!confirm("هل أنت متأكدة من الحذف؟")) return;
+
+  db.collection("videos").doc(id).delete();
+  storage.refFromURL(url).delete();
+
+  showToast("تم حذف الفيديو", "success");
+}
+
+/* 🔹 Render Videos (بدون تغيير التصميم) */
+function renderVideos(videos) {
+  const container = document.getElementById("videoContainer");
+
+  if (videos.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-film"></i>
+        <h3>لا توجد فيديوهات</h3>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = videos.map(v => `
+    <div class="videoCard">
+      <video controls preload="metadata">
+        <source src="${v.url}" type="video/mp4">
+      </video>
+      <div class="video-info">
+        <h4>${v.title}</h4>
+        ${v.description ? `<div class="video-description">${v.description}</div>` : ""}
+        <div class="video-meta">
+          <span><i class="fas fa-clock"></i>
+          ${v.createdAt?.toDate().toLocaleDateString("ar-SA") || ""}</span>
+        </div>
+        ${isAdmin ? `
+        <button class="delete-btn" onclick="deleteVideo('${v.id}','${v.url}')">
+          <i class="fas fa-trash"></i> حذف
+        </button>` : ""}
+      </div>
+    </div>
+  `).join("");
+}
+
+/* 🔹 Admin Login (كما هو عندك) */
+function adminLogin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  if (user === "admin" && pass === "1256") {
+    isAdmin = true;
+
+    // إظهار لوحة الأدمن
+    document.getElementById("adminLogin").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+
+    // إظهار زر الإدارة العائم
+    document.getElementById("adminFloatBtn").classList.add("active");
+
+    // تفعيل وضع الأدمن على الفيديوهات
+    document.getElementById("videoContainer").classList.add("admin-mode");
+
+    showToast("تم تسجيل الدخول بنجاح", "success");
+
+    // تنظيف الحقول
+    document.getElementById("adminUser").value = "";
+    document.getElementById("adminPass").value = "";
+  } else {
+    showToast("خطأ في اسم المستخدم أو كلمة المرور", "error");
+  }
+}
+
+function adminLogout() {
+  isAdmin = false;
+  document.getElementById("adminFloatBtn").classList.remove("active");
+  closeAllModals();
+  showToast("تم تسجيل الخروج", "success");
+}
+
+/* 🔹 Admin Activation (via Search Bar) */
+document.getElementById("searchBar").addEventListener("input", function(e) {
+  const val = e.target.value.trim().toLowerCase();
+
+  if (val === "0015ve$") {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("adminLogin").style.display = "block";
+    this.value = "";
+  }
+});
+
+loadVideos();
+</script>
+
+</body>
+</html>
