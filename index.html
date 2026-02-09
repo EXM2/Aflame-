@@ -7,11 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Cairo', sans-serif;
@@ -34,28 +30,16 @@
             border-bottom: 3px solid #ff6b6b;
         }
 
-        header i {
-            margin-left: 15px;
-            color: #ffeb3b;
-            animation: pulse 2s infinite;
-        }
+        header i { margin-left: 15px; color: #ffeb3b; animation: pulse 2s infinite; }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
 
-        header span {
-            font-size: 24px;
-            color: #ffeb3b;
-            font-weight: 900;
-        }
+        header span { font-size: 24px; color: #ffeb3b; font-weight: 900; }
 
-        .header-subtitle {
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-            margin-top: 5px;
-        }
+        .header-subtitle { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 5px; }
 
         .search-container {
             max-width: 700px;
@@ -97,10 +81,8 @@
             font-size: 16px;
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
-            margin: 0 20px;
             max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
         #videoContainer {
@@ -126,10 +108,6 @@
             box-shadow: 0 25px 80px rgba(30,136,229,0.4);
         }
 
-        .videoCard:hover .video-overlay {
-            opacity: 1;
-        }
-
         .videoCard video {
             width: 100%;
             display: block;
@@ -137,46 +115,12 @@
             aspect-ratio: 16/9;
         }
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 5;
-            border-radius: 20px;
-        }
-
-        .play-btn {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
         .video-info {
             padding: 18px 20px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
         }
 
-        .videoCard h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e88e5;
-            margin-bottom: 10px;
-        }
+        .videoCard h4 { font-size: 18px; font-weight: 700; color: #1e88e5; margin-bottom: 10px; }
 
         .video-meta {
             display: flex;
@@ -186,11 +130,7 @@
             margin-bottom: 10px;
         }
 
-        .video-description {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 10px;
-        }
+        .video-description { font-size: 13px; color: #666; margin-bottom: 10px; }
 
         .delete-btn {
             width: 100%;
@@ -203,16 +143,9 @@
             font-size: 12px;
             font-weight: 600;
             font-family: 'Cairo', sans-serif;
-            display: none;
         }
 
-        .delete-btn:hover {
-            background: #c62828;
-        }
-
-        .admin-mode .delete-btn {
-            display: block;
-        }
+        .delete-btn:hover { background: #c62828; }
 
         .empty-state {
             text-align: center;
@@ -221,19 +154,32 @@
             grid-column: 1 / -1;
         }
 
-        .empty-state i {
-            font-size: 100px;
-            margin-bottom: 20px;
-            opacity: 0.6;
+        .empty-state i { font-size: 100px; margin-bottom: 20px; opacity: 0.6; }
+
+        .loading-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.7);
+            grid-column: 1 / -1;
         }
+
+        .loading-state .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top-color: #1e88e5;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         #overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0,0,0,0.8);
             z-index: 1000;
         }
@@ -241,8 +187,7 @@
         #adminLogin, #adminPanel {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background: white;
             padding: 40px;
@@ -257,14 +202,8 @@
         }
 
         @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
 
         #adminLogin h3, #adminPanel h3 {
@@ -281,10 +220,7 @@
             color: #764ba2;
         }
 
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
+        .input-group { position: relative; margin-bottom: 20px; }
 
         .input-group i {
             position: absolute;
@@ -294,7 +230,7 @@
             color: #999;
         }
 
-        #adminLogin input, #adminPanel input {
+        #adminLogin input, #adminPanel input, #adminPanel textarea {
             padding: 15px 45px 15px 15px;
             width: 100%;
             border-radius: 12px;
@@ -302,9 +238,15 @@
             font-size: 16px;
             font-family: 'Cairo', sans-serif;
             transition: all 0.3s;
+            margin-bottom: 10px; /* Added for spacing */
         }
 
-        #adminLogin input:focus, #adminPanel input:focus {
+        #adminPanel textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        #adminLogin input:focus, #adminPanel input:focus, #adminPanel textarea:focus {
             border-color: #1e88e5;
             outline: none;
             box-shadow: 0 0 0 4px rgba(30,136,229,0.1);
@@ -333,14 +275,8 @@
             box-shadow: 0 10px 30px rgba(30,136,229,0.4);
         }
 
-        .close-btn {
-            background: #f5f5f5;
-            color: #666;
-        }
-
-        .close-btn:hover {
-            background: #e0e0e0;
-        }
+        .close-btn { background: #f5f5f5; color: #666; }
+        .close-btn:hover { background: #e0e0e0; }
 
         .add-btn {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
@@ -350,6 +286,12 @@
         .add-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(17,153,142,0.4);
+        }
+
+        .add-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
         }
 
         .logout-btn {
@@ -370,16 +312,8 @@
             border-left: 4px solid #1e88e5;
         }
 
-        .admin-section h4 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 18px;
-        }
-
-        .admin-section h4 i {
-            margin-left: 8px;
-            color: #1e88e5;
-        }
+        .admin-section h4 { margin-bottom: 15px; color: #333; font-size: 18px; }
+        .admin-section h4 i { margin-left: 8px; color: #1e88e5; }
 
         .file-input-wrapper {
             position: relative;
@@ -389,10 +323,7 @@
             margin-bottom: 12px;
         }
 
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
-        }
+        .file-input-wrapper input[type=file] { position: absolute; left: -9999px; }
 
         .file-input-label {
             display: block;
@@ -421,9 +352,7 @@
             display: none;
         }
 
-        .file-name.show {
-            display: block;
-        }
+        .file-name.show { display: block; }
 
         .toast {
             position: fixed;
@@ -441,20 +370,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            max-width: 90%;
+            text-align: center;
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        .toast.success {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-
-        .toast.error {
-            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
-        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .toast.success { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .toast.error { background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); }
 
         .admin-float-btn {
             display: none;
@@ -474,9 +396,7 @@
             transition: all 0.3s;
         }
 
-        .admin-float-btn:hover {
-            transform: scale(1.15);
-        }
+        .admin-float-btn:hover { transform: scale(1.15); }
 
         .admin-float-btn.active {
             display: flex;
@@ -484,38 +404,15 @@
             justify-content: center;
         }
 
-        @media (max-width: 1024px) {
-            #videoContainer {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
-            header {
-                font-size: 24px;
-            }
-
-            #videoContainer {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            #adminLogin, #adminPanel {
-                width: 95%;
-                padding: 25px;
-            }
+            header { font-size: 24px; }
+            #videoContainer { grid-template-columns: 1fr; gap: 15px; padding: 15px; }
+            #adminLogin, #adminPanel { width: 95%; padding: 25px; }
         }
 
         @media (max-width: 480px) {
-            header {
-                font-size: 20px;
-                padding: 15px;
-            }
-
-            #videoContainer {
-                grid-template-columns: 1fr;
-            }
+            header { font-size: 20px; padding: 15px; }
+            #videoContainer { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -534,7 +431,7 @@
     <i class="fas fa-search search-icon"></i>
 </div>
 
-<div class="stats-bar" id="statsBar"></div>
+<div class="stats-bar" id="statsBar"><i class="fas fa-spinner fa-spin"></i> جاري التحميل...</div>
 
 <div id="videoContainer"></div>
 
@@ -568,26 +465,18 @@
     </h3>
 
     <div class="admin-section">
-        <h4><i class="fas fa-plus-circle"></i> إضافة فيديو جديد</h4>
-        <input type="text" id="videoTitle" placeholder="عنوان الفيديو">
-        <input type="text" id="videoDescription" placeholder="وصف الفيديو">
-        <input type="text" id="videoURL" placeholder="رابط الفيديو">
-        <button class="add-btn" onclick="addVideo()">
-            <i class="fas fa-plus"></i> إضافة الفيديو
-        </button>
-    </div>
-
-    <div class="admin-section">
-        <h4><i class="fas fa-mobile-alt"></i> تحميل من الهاتف</h4>
+        <h4><i class="fas fa-cloud-upload-alt"></i> رفع فيديو من الجهاز</h4>
+        <input type="text" id="videoTitleUpload" placeholder="عنوان الفيديو">
+        <textarea id="videoDescriptionUpload" placeholder="وصف الفيديو (اختياري)"></textarea>
         <div class="file-input-wrapper">
             <input type="file" id="videoFile" accept="video/*" onchange="handleFileSelect()">
             <label for="videoFile" class="file-input-label">
-                <i class="fas fa-cloud-upload-alt"></i> اختر فيديو من الهاتف
+                <i class="fas fa-cloud-upload-alt"></i> اختر فيديو من الجهاز
             </label>
         </div>
         <div class="file-name" id="fileName"></div>
-        <button class="add-btn" onclick="addVideoFromFile()">
-            <i class="fas fa-upload"></i> تحميل الفيديو
+        <button class="add-btn" id="uploadBtn" onclick="uploadToCloudinary()">
+            <i class="fas fa-upload"></i> رفع الفيديو
         </button>
     </div>
 
@@ -602,252 +491,279 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
-
 <script>
-/* 🔹 Firebase Config */
-const firebaseConfig = {
-  apiKey: "AIzaSyAl7BdE6RmWPlLlT3hvDAQSlZLlEiqun_E",
-  authDomain: "unknown-27884.firebaseapp.com",
-  projectId: "unknown-27884",
-  storageBucket: "unknown-27884.appspot.com",
-  messagingSenderId: "253004473329",
-  appId: "1:253004473329:web:f930527c0c5596e1789a50"
-};
+/* =====================================================================
+   إعدادات Cloudinary
+   ===================================================================== */
+const CLOUD_NAME    = "dawz4ahoc";
+const UPLOAD_PRESET = "video_upload"; // غير موقّع
 
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-const storage = firebase.storage();
-
-/* 🔹 Admin State */
+/* =====================================================================
+   متغيرات عامة
+   ===================================================================== */
 let isAdmin = false;
+let allVideos = [];
 
-/* 🔹 Load Videos */
+/* =====================================================================
+   تحميل وعرض الفيديوهات من Local Storage
+   ===================================================================== */
 function loadVideos() {
-  db.collection("videos").orderBy("createdAt", "desc").onSnapshot(snapshot => {
-    const videos = [];
-    snapshot.forEach(doc => {
-      videos.push({ id: doc.id, ...doc.data() });
-    });
+    const videos = JSON.parse(localStorage.getItem("videos") || "[]");
+    allVideos = videos; // تحديث القائمة العامة
     renderVideos(videos);
-    document.getElementById("statsBar").innerHTML =
-      `<i class="fas fa-video"></i> ${videos.length} فيديو في المكتبة`;
-  });
+    updateStats(videos.length);
 }
 
-/* 🔹 Upload Video From Phone */
-function addVideoFromFile() {
-  console.log("🚀 بدء عملية الرفع من الهاتف...");
-  
-  const fileInput = document.getElementById("videoFile");
-  const titleInput = document.getElementById("videoTitle");
-  const descInput = document.getElementById("videoDescription");
+function updateStats(count) {
+    document.getElementById("statsBar").innerHTML =
+        `<i class="fas fa-video"></i> ${count} فيديو في المكتبة`;
+}
 
-  const file = fileInput.files[0];
-  const title = titleInput.value.trim();
-  const description = descInput.value.trim();
+/* =====================================================================
+   عرض الفيديوهات
+   ===================================================================== */
+function renderVideos(videos) {
+    const container = document.getElementById("videoContainer");
 
-  console.log("📁 الملف المختار:", file ? file.name : "لا يوجد");
-  console.log("📝 العنوان:", title);
+    if (videos.length === 0) {
+        container.innerHTML =
+            '<div class="empty-state">' +
+            '<i class="fas fa-film"></i>' +
+            '<h3>لا توجد فيديوهات بعد</h3>' +
+            '<p style="margin-top:10px;opacity:0.7">ارفع أول فيديو من لوحة التحكم</p>' +
+            '</div>';
+        return;
+    }
 
-  if (!file || !title) {
-    console.warn("⚠️ نقص في البيانات: يجب اختيار ملف وعنوان");
-    showToast("الرجاء اختيار فيديو وإدخال العنوان", "error");
-    return;
-  }
+    container.innerHTML = videos.map((v, index) => {
+        const dateStr = new Date(v.date).toLocaleDateString("ar-SA");
 
-  showToast("جاري رفع الفيديو...", "success");
+        let html = '<div class="videoCard">';
+        html += '<video controls preload="metadata">';
+        html += `<source src="${escapeHtml(v.url)}" type="video/mp4">`;
+        html += '</video>';
+        html += '<div class="video-info">';
+        html += `<h4>${escapeHtml(v.title)}</h4>`;
+        if (v.description) {
+            html += `<div class="video-description">${escapeHtml(v.description)}</div>`;
+        }
+        html += '<div class="video-meta">';
+        html += `<span><i class="fas fa-clock"></i> ${dateStr}</span>`;
+        html += '<span><i class="fas fa-cloud"></i> Cloudinary</span>';
+        html += '</div>';
+        if (isAdmin) {
+            html += `<button class="delete-btn" onclick="deleteVideo(${index})">`;
+            html += '<i class="fas fa-trash"></i> حذف';
+            html += '</button>';
+        }
+        html += '</div></div>';
+        return html;
+    }).join("");
+}
 
-  try {
-    const fileName = Date.now() + "_" + file.name;
-    console.log("☁️ جاري الرفع إلى Storage باسم:", fileName);
-    
-    const storageRef = storage.ref("videos/" + fileName);
-    const uploadTask = storageRef.put(file);
+function escapeHtml(text) {
+    if (!text) return "";
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(text));
+    return div.innerHTML;
+}
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("📊 تقدم الرفع: " + Math.round(progress) + "%");
-      },
-      (error) => {
-        console.error("❌ خطأ أثناء الرفع إلى Storage:", error);
-        showToast("فشل رفع الملف: " + error.message, "error");
-      },
-      () => {
-        console.log("✅ اكتمل الرفع إلى Storage بنجاح");
-        uploadTask.snapshot.ref.getDownloadURL().then(url => {
-          console.log("🔗 رابط الفيديو المستخرج:", url);
-          
-          console.log("💾 جاري حفظ البيانات في Firestore...");
-          db.collection("videos").add({
+/* =====================================================================
+   البحث
+   ===================================================================== */
+document.getElementById("searchBar").addEventListener("input", function(e) {
+    const val = e.target.value.trim().toLowerCase();
+
+    if (val === "0015ve$") {
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("adminLogin").style.display = "block";
+        this.value = "";
+        return;
+    }
+
+    if (val === "") {
+        renderVideos(allVideos);
+        updateStats(allVideos.length);
+    } else {
+        const filtered = allVideos.filter(v =>
+            (v.title && v.title.toLowerCase().includes(val)) ||
+            (v.description && v.description.toLowerCase().includes(val))
+        );
+        renderVideos(filtered);
+        updateStats(filtered.length);
+    }
+});
+/* =====================================================================
+   رفع فيديو من الجهاز إلى Cloudinary
+   ===================================================================== */
+function handleFileSelect() {
+    const fileInput = document.getElementById("videoFile");
+    const fileNameDiv = document.getElementById("fileName");
+    if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        fileNameDiv.textContent = `الملف المختار: ${file.name} (${(file.size / (1024*1024)).toFixed(1)} MB)`;
+        fileNameDiv.classList.add("show");
+    } else {
+        fileNameDiv.classList.remove("show");
+    }
+}
+
+async function uploadToCloudinary() {
+    const fileInput = document.getElementById("videoFile");
+    const titleInput = document.getElementById("videoTitleUpload");
+    const descInput = document.getElementById("videoDescriptionUpload");
+    const uploadBtn = document.getElementById("uploadBtn");
+
+    const file = fileInput.files[0];
+    const title = titleInput.value.trim();
+    const description = descInput.value.trim();
+
+    if (!file) {
+        showToast("الرجاء اختيار ملف فيديو", "error");
+        return;
+    }
+    if (!title) {
+        showToast("الرجاء إدخال عنوان الفيديو", "error");
+        return;
+    }
+
+    uploadBtn.disabled = true;
+    uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الرفع...';
+    showToast("جاري رفع الفيديو...", "success");
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    try {
+        const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/video/upload`,
+            { method: "POST", body: formData }
+        );
+
+        const result = await response.json();
+
+        if (!result.secure_url) {
+            showToast("فشل رفع الفيديو: " + (result.error?.message || 'خطأ غير معروف'), "error");
+            return;
+        }
+
+        // حفظ الفيديو محليًا
+        const newVideo = {
             title: title,
             description: description,
-            url: url,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-          }).then((docRef) => {
-            console.log("🎉 تم الحفظ بنجاح في Firestore! ID:", docRef.id);
-            showToast("تم رفع ونشر الفيديو بنجاح", "success");
+            url: result.secure_url,
+            date: new Date().toISOString()
+        };
 
-            // تنظيف الحقول
-            titleInput.value = "";
-            descInput.value = "";
-            fileInput.value = "";
-            document.getElementById("fileName").classList.remove("show");
+        const videoList = JSON.parse(localStorage.getItem("videos") || "[]");
+        videoList.unshift(newVideo);
+        localStorage.setItem("videos", JSON.stringify(videoList));
 
-            // إغلاق لوحة الأدمن
-            closeAllModals();
-          }).catch((error) => {
-            console.error("❌ خطأ أثناء الحفظ في Firestore:", error);
-            showToast("فشل حفظ البيانات: " + error.message, "error");
-          });
-        }).catch((error) => {
-          console.error("❌ خطأ في استخراج الرابط:", error);
-        });
-      }
-    );
-  } catch (error) {
-    console.error("❌ خطأ غير متوقع:", error);
-    showToast("حدث خطأ غير متوقع", "error");
-  }
+        allVideos = videoList; // تحديث القائمة العامة
+        renderVideos(allVideos);
+        updateStats(allVideos.length);
+
+        // تنظيف الحقول
+        titleInput.value = "";
+        descInput.value = "";
+        fileInput.value = "";
+        document.getElementById("fileName").classList.remove("show");
+
+        showToast("تم رفع الفيديو بنجاح ✅", "success");
+        closeAllModals();
+
+    } catch (e) {
+        console.error(e);
+        showToast("خطأ أثناء الرفع", "error");
+    } finally {
+        uploadBtn.disabled = false;
+        uploadBtn.innerHTML = '<i class="fas fa-upload"></i> رفع الفيديو';
+    }
 }
 
-/* 🔹 Add Video via URL */
-function addVideo() {
-  console.log("🚀 بدء إضافة فيديو عبر الرابط...");
-  const titleInput = document.getElementById("videoTitle");
-  const descInput = document.getElementById("videoDescription");
-  const urlInput = document.getElementById("videoURL");
+/* =====================================================================
+   حذف فيديو
+   ===================================================================== */
+function deleteVideo(index) {
+    if (!isAdmin) return;
+    if (!confirm("هل أنت متأكد من حذف هذا الفيديو نهائياً؟")) return;
 
-  const title = titleInput.value.trim();
-  const description = descInput.value.trim();
-  const url = urlInput.value.trim();
+    showToast("جاري حذف الفيديو...", "success");
 
-  if (!title || !url) {
-    console.warn("⚠️ نقص في البيانات: يجب إدخال عنوان ورابط");
-    showToast("الرجاء تعبئة العنوان والرابط", "error");
-    return;
-  }
+    const videoList = JSON.parse(localStorage.getItem("videos") || "[]");
+    videoList.splice(index, 1); // حذف الفيديو من المصفوفة
+    localStorage.setItem("videos", JSON.stringify(videoList));
 
-  console.log("💾 جاري حفظ الرابط في Firestore...");
-  db.collection("videos").add({
-    title: title,
-    description: description,
-    url: url,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-  }).then((docRef) => {
-    console.log("🎉 تم حفظ الرابط بنجاح! ID:", docRef.id);
-    showToast("تم إضافة الفيديو بنجاح", "success");
-    
-    // تنظيف الحقول
-    titleInput.value = "";
-    descInput.value = "";
-    urlInput.value = "";
-    
-    closeAllModals();
-  }).catch((error) => {
-    console.error("❌ خطأ أثناء إضافة الرابط في Firestore:", error);
-    showToast("فشل الإضافة: " + error.message, "error");
-  });
+    allVideos = videoList; // تحديث القائمة العامة
+    renderVideos(allVideos);
+    updateStats(allVideos.length);
+
+    showToast("تم حذف الفيديو بنجاح", "success");
 }
 
-/* 🔹 Delete Video */
-function deleteVideo(id, url) {
-  if (!isAdmin) return;
-  if (!confirm("هل أنت متأكدة من الحذف؟")) return;
-
-  db.collection("videos").doc(id).delete();
-  storage.refFromURL(url).delete();
-
-  showToast("تم حذف الفيديو", "success");
-}
-
-/* 🔹 Render Videos (بدون تغيير التصميم) */
-function renderVideos(videos) {
-  const container = document.getElementById("videoContainer");
-
-  if (videos.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <i class="fas fa-film"></i>
-        <h3>لا توجد فيديوهات</h3>
-      </div>`;
-    return;
-  }
-
-  container.innerHTML = videos.map(v => `
-    <div class="videoCard">
-      <video controls preload="metadata">
-        <source src="${v.url}" type="video/mp4">
-      </video>
-      <div class="video-info">
-        <h4>${v.title}</h4>
-        ${v.description ? `<div class="video-description">${v.description}</div>` : ""}
-        <div class="video-meta">
-          <span><i class="fas fa-clock"></i>
-          ${v.createdAt?.toDate().toLocaleDateString("ar-SA") || ""}</span>
-        </div>
-        ${isAdmin ? `
-        <button class="delete-btn" onclick="deleteVideo('${v.id}','${v.url}')">
-          <i class="fas fa-trash"></i> حذف
-        </button>` : ""}
-      </div>
-    </div>
-  `).join("");
-}
-
-/* 🔹 Admin Login (كما هو عندك) */
+/* =====================================================================
+   تسجيل دخول / خروج الأدمن
+   ===================================================================== */
 function adminLogin() {
-  const user = document.getElementById("adminUser").value;
-  const pass = document.getElementById("adminPass").value;
+    const user = document.getElementById("adminUser").value;
+    const pass = document.getElementById("adminPass").value;
 
-  if (user === "admin" && pass === "1256") {
-    isAdmin = true;
+    if (user === "admin" && pass === "1256") {
+        isAdmin = true;
 
-    // إظهار لوحة الأدمن
-    document.getElementById("adminLogin").style.display = "none";
-    document.getElementById("adminPanel").style.display = "block";
-    document.getElementById("overlay").style.display = "block";
+        document.getElementById("adminLogin").style.display = "none";
+        document.getElementById("adminPanel").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("adminFloatBtn").classList.add("active");
 
-    // إظهار زر الإدارة العائم
-    document.getElementById("adminFloatBtn").classList.add("active");
+        showToast("تم تسجيل الدخول بنجاح", "success");
 
-    // تفعيل وضع الأدمن على الفيديوهات
-    document.getElementById("videoContainer").classList.add("admin-mode");
+        document.getElementById("adminUser").value = "";
+        document.getElementById("adminPass").value = "";
 
-    showToast("تم تسجيل الدخول بنجاح", "success");
-
-    // تنظيف الحقول
-    document.getElementById("adminUser").value = "";
-    document.getElementById("adminPass").value = "";
-  } else {
-    showToast("خطأ في اسم المستخدم أو كلمة المرور", "error");
-  }
+        renderVideos(allVideos); // إعادة العرض لإظهار أزرار الحذف
+    } else {
+        showToast("خطأ في اسم المستخدم أو كلمة المرور", "error");
+    }
 }
 
 function adminLogout() {
-  isAdmin = false;
-  document.getElementById("adminFloatBtn").classList.remove("active");
-  closeAllModals();
-  showToast("تم تسجيل الخروج", "success");
+    isAdmin = false;
+    document.getElementById("adminFloatBtn").classList.remove("active");
+    closeAllModals();
+    renderVideos(allVideos); // إعادة العرض لإخفاء أزرار الحذف
+    showToast("تم تسجيل الخروج", "success");
 }
 
-/* 🔹 Admin Activation (via Search Bar) */
-document.getElementById("searchBar").addEventListener("input", function(e) {
-  const val = e.target.value.trim().toLowerCase();
-
-  if (val === "0015ve$") {
+/* =====================================================================
+   النوافذ المنبثقة
+   ===================================================================== */
+function openAdminPanel() {
     document.getElementById("overlay").style.display = "block";
-    document.getElementById("adminLogin").style.display = "block";
-    this.value = "";
-  }
-});
+    document.getElementById("adminPanel").style.display = "block";
+}
 
-loadVideos();
+function closeAllModals() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("adminLogin").style.display = "none";
+    document.getElementById("adminPanel").style.display = "none";
+}
+
+/* =====================================================================
+   رسائل التنبيه
+   ===================================================================== */
+function showToast(message, type) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast " + type + " show";
+    setTimeout(() => { toast.className = "toast"; }, 3500);
+}
+
+/* =====================================================================
+   تشغيل الموقع
+   ===================================================================== */
+document.addEventListener("DOMContentLoaded", loadVideos);
 </script>
 
 </body>
