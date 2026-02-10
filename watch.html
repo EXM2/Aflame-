@@ -19,15 +19,15 @@
         header {
             background: linear-gradient(135deg, rgba(30, 136, 229, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
             color: white;
-            padding: 20px;
+            padding: 10px 20px; /* رفع النافذة */
             text-align: center;
-            font-size: 28px;
+            font-size: 22px; /* تصغير الخط لرفع المساحة */
             font-weight: 800;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 3px solid #ff6b6b;
+            border: none; /* إزالة الحواف */
         }
 
         .back-btn {
@@ -103,14 +103,30 @@
             color: #666;
         }
 
-        .meta-item i {
-            color: #1e88e5;
-            font-size: 18px;
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            background: rgba(30, 136, 229, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(30, 136, 229, 0.1);
+            transition: none; /* إزالة أي انتقالات */
         }
-
+        .meta-item i {
+            animation: none !important; /* منع أي دوران أو حركة */
+            transform: none !important;
+        }
+        .meta-item i {
+            font-size: 16px;
+            color: #555;
+        }
+        .meta-item.views i { color: #1e88e5; }
+        .meta-item.likes i { color: #ff4757; }
         .meta-item .value {
             font-weight: 700;
-            color: #1e88e5;
+            color: #222;
+            font-size: 16px;
         }
 
         .video-category {
@@ -263,28 +279,27 @@
             margin-bottom: 20px;
         }
 
-        .ad-timer {
-            font-size: 48px;
-            font-weight: 800;
-            color: #ff4757;
-            margin: 20px 0;
-        }
-
-        .skip-ad-btn {
+        .ad-timer-container {
+            margin: 20px auto;
             padding: 15px 30px;
-            background: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-            transition: all 0.3s;
-            display: none;
+            background: #f8f9fa;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #eee;
         }
-        .skip-ad-btn.show { display: inline-block; }
-        .skip-ad-btn:hover { background: #45a049; transform: scale(1.05); }
+        .ad-timer {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ff4757;
+            min-width: 40px;
+        }
+        .ad-timer-text {
+            font-size: 16px;
+            color: #666;
+            font-weight: 700;
+        }
 
         @media (max-width: 768px) {
             .video-title { font-size: 24px; }
@@ -367,9 +382,11 @@ function renderVideo() {
             <div class="ad-overlay" id="adOverlay">
                 <div class="ad-content">
                     <h3>🎬 إعلان</h3>
-                    <p>يرجى الانتظار لحظات لدعم الموقع</p>
-                    <div class="ad-timer" id="adTimer">5</div>
-                    <button class="skip-ad-btn" id="skipAdBtn" onclick="skipAd()">تخطي الإعلان ▶️</button>
+                    <p>سيتم تشغيل الفيديو تلقائياً خلال ثوانٍ</p>
+                    <div class="ad-timer-container">
+                        <span class="ad-timer-text">سيبدأ الفيديو خلال:</span>
+                        <div class="ad-timer" id="adTimer">5</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -377,8 +394,8 @@ function renderVideo() {
             <div class="video-category">${currentVideo.category || 'عام'}</div>
             <h1 class="video-title">${currentVideo.title}</h1>
             <div class="video-meta">
-                <div class="meta-item"><i class="fas fa-eye"></i> <span class="value">${formatNumber(displayViews)}</span> مشاهدة</div>
-                <div class="meta-item"><i class="fas fa-heart"></i> <span class="value">${formatNumber(displayLikes)}</span> إعجاب</div>
+                <div class="meta-item views"><i class="fas fa-eye"></i> <span class="value">${formatNumber(displayViews)}</span></div>
+                <div class="meta-item likes"><i class="fas fa-heart"></i> <span class="value">${formatNumber(displayLikes)}</span></div>
             </div>
             <div class="action-buttons">
                 <button class="btn btn-like" id="likeBtn" onclick="toggleLike()" ${isLiked ? 'disabled' : ''}>
@@ -488,31 +505,28 @@ function showToast(m, t) {
 }
 
 /* ================== AD SYSTEM ================== */
-function showAdBeforeVideo() {
-    const adOverlay = document.getElementById('adOverlay');
-    const adTimer = document.getElementById('adTimer');
-    const skipBtn = document.getElementById('skipAdBtn');
-    const video = document.getElementById('mainVideo');
-    
-    if (!adOverlay) return;
-    
-    adOverlay.classList.add('show');
-    
-    if (video) video.pause();
-    
-    let timeLeft = 5;
-    adTimer.textContent = timeLeft;
-    
-    const countdown = setInterval(() => {
-        timeLeft--;
-        adTimer.textContent = timeLeft;
-        
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            skipBtn.classList.add('show');
-        }
-    }, 1000);
-}
+	function showAdBeforeVideo() {
+	    const adOverlay = document.getElementById('adOverlay');
+	    const adTimer = document.getElementById('adTimer');
+	    const video = document.getElementById('mainVideo');
+	    
+	    if (!adOverlay) return;
+	    adOverlay.classList.add('show');
+	    if (video) video.pause();
+	    
+	    let timeLeft = 5;
+	    adTimer.textContent = timeLeft;
+	    
+	    const countdown = setInterval(() => {
+	        timeLeft--;
+	        adTimer.textContent = timeLeft;
+	        
+	        if (timeLeft <= 0) {
+	            clearInterval(countdown);
+	            skipAd(); // تشغيل تلقائي
+	        }
+	    }, 1000);
+	}
 
 function skipAd() {
     const adOverlay = document.getElementById('adOverlay');
