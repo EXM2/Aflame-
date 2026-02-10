@@ -359,38 +359,6 @@
             overflow: hidden;
         }
 
-        /* نظام الإعلانات المطور */
-        #adOverlayMain {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        #adOverlayMain.show { display: flex; }
-        .ad-content-main {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            color: #333;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .ad-timer-main {
-            font-size: 60px;
-            font-weight: 800;
-            color: #ff4757;
-            margin: 20px 0;
-        }
-        .ad-title-main { font-size: 24px; color: #1e88e5; margin-bottom: 10px; }
-
         @media (max-width: 768px) {
             #videoContainer { grid-template-columns: 1fr; }
             .admin-stats { grid-template-columns: repeat(2, 1fr); }
@@ -434,16 +402,6 @@
 <div id="videoContainer"></div>
 
 <div id="overlay" onclick="closeAllModals()"></div>
-
-<!-- نظام الإعلانات قبل المشاهدة -->
-<div id="adOverlayMain">
-    <div class="ad-content-main">
-        <div class="ad-title-main">🎬 إعلان</div>
-        <p>يرجى الانتظار لحظات لدعم الموقع</p>
-        <div class="ad-timer-main" id="adTimerMain">5</div>
-        <p style="font-size: 12px; color: #888;">سيبدأ الفيديو تلقائياً بعد انتهاء العد</p>
-    </div>
-</div>
 
 <div id="adminLogin">
     <h3>🔐 دخول الأدمن</h3>
@@ -625,28 +583,8 @@ function toggleLike(index, btn) {
 }
 
 function goToWatch(index) {
-    const adOverlay = document.getElementById('adOverlayMain');
-    const adTimer = document.getElementById('adTimerMain');
-    
-    if (!adOverlay) {
-        window.open('https://pl28557264.effectivegatecpm.com/66/c7/7d/66c77d7ac95f5328a050e5b7c4929460.js', '_blank');
-        window.location.href = `watch.html?id=${index}`;
-        return;
-    }
-    
-    adOverlay.classList.add('show');
-    let timeLeft = 5;
-    adTimer.textContent = timeLeft;
-    
-    const timer = setInterval(() => {
-        timeLeft--;
-        adTimer.textContent = timeLeft;
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            window.open('https://pl28557264.effectivegatecpm.com/66/c7/7d/66c77d7ac95f5328a050e5b7c4929460.js', '_blank');
-            window.location.href = `watch.html?id=${index}`;
-        }
-    }, 1000);
+    window.open('https://pl28557264.effectivegatecpm.com/66/c7/7d/66c77d7ac95f5328a050e5b7c4929460.js', '_blank');
+    window.location.href = `watch.html?id=${index}`;
 }
 
 function triggerIntenseAds() {
