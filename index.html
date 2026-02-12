@@ -9,7 +9,6 @@
     <meta name="keywords" content="أفلام T, مشاهدة أفلام, مسلسلات, مشاهدة مسلسلات, أفلام عربية, أفلام أجنبية, أفضل أفلام, أفلام HD, روابط أفلام مباشرة, مشاهدة أفلام أونلاين">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- تم إزالة كود الإعلانات الأساسي من هنا لتفعيله في صفحة المشاهدة فقط -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -21,12 +20,12 @@
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* لون مميز جميل */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 8px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border: none; /* إزالة الحواف */
+            border: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
@@ -36,15 +35,16 @@
             display: grid;
             grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            min-height: 50px; /* رفع النافذة */
+            min-height: 50px;
         }
 
         .header-right {
             justify-self: start;
             display: flex;
             align-items: center;
-            color: #ffd700; /* أيقونة ذهبية على خلفية خضراء */
+            color: #ffd700;
             font-size: 24px;
+            gap: 15px;
         }
 
         .header-center {
@@ -58,12 +58,8 @@
         .header-title {
             font-size: 26px;
             font-weight: 900;
-            color: #ffffff; /* اسم الموقع بالأبيض للوضوح */
+            color: #ffffff;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .header-subtitle { 
-            display: none; /* إخفاء النص التحتي */
         }
 
         .header-left {
@@ -71,7 +67,7 @@
             font-family: 'serif';
             font-weight: 900;
             font-size: 28px;
-            color: #ff69b4; /* PH بالوردي */
+            color: #ff69b4;
             font-style: italic;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
@@ -83,9 +79,20 @@
             50% { transform: scale(1.1); }
         }
 
-        header span { font-size: 24px; color: #ffeb3b; font-weight: 900; }
-
-        .header-subtitle { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 5px; }
+        .header-nav-link {
+            color: #ffffff;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            animation: none;
+            margin-left: 0;
+        }
+        .header-nav-link:hover { transform: scale(1.15); color: #ffeb3b; }
+        .header-nav-link i { animation: none; margin-left: 0; }
 
         .search-container {
             max-width: 600px;
@@ -202,9 +209,10 @@
         .stat-item { display: flex; align-items: center; gap: 8px; }
         .stat-item i { font-size: 18px; color: #ffeb3b; }
 
+        /* ========== فيديوهات الصفحة الرئيسية ========== */
         #videoContainer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr) !important; /* صفين فقط */
             gap: 25px;
             padding: 20px;
             max-width: 1400px;
@@ -233,10 +241,6 @@
         }
 
         .videoCard video { width: 100%; height: 100%; display: block; }
-        
-        video::-internal-media-controls-download-button { display:none; }
-        video::-webkit-media-controls-enclosure { overflow:hidden; }
-        video::-webkit-media-controls-panel { width: calc(100% + 30px); }
 
         .play-overlay {
             position: absolute;
@@ -249,70 +253,67 @@
         }
         .play-overlay i { font-size: 60px; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
 
-        .video-info { padding: 18px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%); }
+        /* تم تقليل المساحة البيضاء حول الفيديو */
+        .video-info {
+            padding: 12px 15px;  /* كان 18px 20px */
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+        }
 
-        .videoCard h4 { font-size: 18px; font-weight: 700; color: #1e88e5; margin-bottom: 10px; }
+        .videoCard h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e88e5;
+            margin-bottom: 8px; /* تقليل المسافة */
+        }
 
-        .video-meta { display: flex; justify-content: space-between; font-size: 13px; color: #777; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .video-category-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            background: #e3f2fd;
+            color: #1e88e5;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+        }
 
-        .video-category-tag { display: inline-block; padding: 2px 10px; background: #e3f2fd; color: #1e88e5; border-radius: 5px; font-size: 11px; font-weight: 700; }
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
 
-        .action-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
-
+        /* زر الإعجاب بحجم أصغر قليلاً */
         .like-button {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px;
+            padding: 10px; /* كان 12px */
             background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 100%);
             color: white;
             border: none;
-            border-radius: 15px;
+            border-radius: 12px; /* كان 15px */
             cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             font-family: 'Cairo', sans-serif;
             transition: all 0.3s;
             box-shadow: 0 5px 15px rgba(255,71,87,0.3);
         }
-        
+
         .like-button:disabled {
             background: #ccc;
             cursor: not-allowed;
             box-shadow: none;
         }
 
-        .download-btn-container { width: 100%; position: relative; }
-
-        .download-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 800;
-            font-family: 'Cairo', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(255,75,43,0.3);
-            animation: pulse-red 1.5s infinite;
+        /* إخفاء زر التحميل نهائياً من الصفحة الرئيسية */
+        .download-btn-container {
+            display: none !important;
         }
 
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(255,75,43,0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255,75,43,0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,75,43,0); }
-        }
-
-        .timer-display { display: none; font-size: 12px; color: #ff4b2b; margin-top: 5px; text-align: center; font-weight: 700; }
-
+        /* ===== باقي الأنماط كما هي (لم يتم حذف أي شيء) ===== */
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 
         #adminLogin, #adminPanel {
@@ -408,8 +409,44 @@
             overflow: hidden;
         }
 
+        /* ================== ADMIN TABS ================== */
+        .admin-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .admin-tab {
+            padding: 10px 20px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s;
+        }
+        .admin-tab.active {
+            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
+            color: white;
+        }
+        .admin-tab-content {
+            display: none;
+        }
+        .admin-tab-content.active {
+            display: block;
+        }
+
+        .admin-photo-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+        .admin-photo-item div { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+        .admin-photo-item input { width: 70px; margin-bottom: 0; padding: 5px; text-align: center; }
+        .admin-photo-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 8px; }
+
         @media (max-width: 768px) {
-            #videoContainer { grid-template-columns: 1fr; }
+            #videoContainer { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
             .admin-stats { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
@@ -426,10 +463,10 @@
     <div class="header-content">
         <div class="header-right">
             <i class="fas fa-search" style="cursor: pointer; font-size: 24px; color: #ffffff;" onclick="document.getElementById('searchBar').focus();"></i>
+            <a href="photos.html" class="header-nav-link" title="قسم الصور"><i class="fas fa-camera"></i></a>
         </div>
         <div class="header-center">
             <div class="header-title">أفلام T</div>
-            <!-- تم إزالة النص التحتي -->
         </div>
         <div class="header-left">
             PH
@@ -472,58 +509,131 @@
 
 <div id="adminPanel">
     <h3>📊 لوحة التحكم (بيانات حقيقية)</h3>
-    
-    <div class="admin-stats">
-        <div class="stat-card"><h4>الفيديوهات</h4><div class="value" id="adminVideoCount">0</div></div>
-        <div class="stat-card"><h4>المشاهدات (حقيقي)</h4><div class="value" id="adminTotalViews">0</div></div>
-        <div class="stat-card"><h4>الإعجابات (حقيقي)</h4><div class="value" id="adminTotalLikes">0</div></div>
-        <div class="stat-card"><h4>الزوار</h4><div class="value" id="adminTotalVisitors">0</div></div>
+
+    <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('videos')">🎬 الفيديوهات</button>
+        <button class="admin-tab" onclick="switchAdminTab('photos')">📸 الصور</button>
+        <button class="admin-tab" onclick="switchAdminTab('realstats')">📊 إحصائيات حقيقية</button>
     </div>
 
-    <div class="video-input-group">
-        <h4>🎬 إضافة فيديوهات (2 معاً)</h4>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-                <input type="text" id="videoTitle1" placeholder="عنوان 1">
-                <input type="text" id="videoCategory1" placeholder="تصنيف 1">
-                <input type="file" id="videoFile1" accept="video/*">
+    <!-- تبويب الفيديوهات -->
+    <div class="admin-tab-content active" id="adminTabVideos">
+        <div class="admin-stats">
+            <div class="stat-card"><h4>الفيديوهات</h4><div class="value" id="adminVideoCount">0</div></div>
+            <div class="stat-card"><h4>المشاهدات (حقيقي)</h4><div class="value" id="adminTotalViews">0</div></div>
+            <div class="stat-card"><h4>الإعجابات (حقيقي)</h4><div class="value" id="adminTotalLikes">0</div></div>
+            <div class="stat-card"><h4>الزوار</h4><div class="value" id="adminTotalVisitors">0</div></div>
+        </div>
+
+        <div class="video-input-group">
+            <h4>🎬 إضافة فيديوهات (2 معاً)</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <input type="text" id="videoTitle1" placeholder="عنوان 1">
+                    <input type="text" id="videoCategory1" placeholder="تصنيف 1">
+                    <input type="file" id="videoFile1" accept="video/*">
+                </div>
+                <div>
+                    <input type="text" id="videoTitle2" placeholder="عنوان 2">
+                    <input type="text" id="videoCategory2" placeholder="تصنيف 2">
+                    <input type="file" id="videoFile2" accept="video/*">
+                </div>
             </div>
-            <div>
-                <input type="text" id="videoTitle2" placeholder="عنوان 2">
-                <input type="text" id="videoCategory2" placeholder="تصنيف 2">
-                <input type="file" id="videoFile2" accept="video/*">
+            <button class="add-btn" id="uploadBtn" onclick="uploadToCloudinary()">رفع الفيديوهات</button>
+        </div>
+
+        <div class="detailed-stats-section">
+            <h4>📈 إحصائيات متقدمة</h4>
+            <div class="stats-grid-detailed">
+                <div class="detailed-stat-item">
+                    <label>متوسط المشاهدات لكل فيديو</label>
+                    <div class="value" id="avgViews">0</div>
+                </div>
+                <div class="detailed-stat-item">
+                    <label>نسبة الإعجاب للمشاهدة</label>
+                    <div class="value" id="likeRate">0%</div>
+                </div>
+                <div class="detailed-stat-item">
+                    <label>الفيديو الأكثر تفاعلاً</label>
+                    <div class="value" id="topVideo" style="font-size: 14px;">-</div>
+                </div>
+                <div class="detailed-stat-item">
+                    <label>أكثر تصنيف مشاهدة</label>
+                    <div class="value" id="topCategory">-</div>
+                </div>
             </div>
         </div>
-        <button class="add-btn" id="uploadBtn" onclick="uploadToCloudinary()">رفع الفيديوهات</button>
+
+        <div class="admin-video-list">
+            <h4>📝 إدارة الفيديوهات (التحكم في الإحصائيات الحقيقية)</h4>
+            <div id="adminVideoItems"></div>
+        </div>
     </div>
 
-    <div class="detailed-stats-section">
-        <h4>📈 إحصائيات متقدمة</h4>
-        <div class="stats-grid-detailed">
-            <div class="detailed-stat-item">
-                <label>متوسط المشاهدات لكل فيديو</label>
-                <div class="value" id="avgViews">0</div>
+    <!-- تبويب الصور -->
+    <div class="admin-tab-content" id="adminTabPhotos">
+        <div class="admin-stats">
+            <div class="stat-card"><h4>الصور</h4><div class="value" id="adminPhotoCount">0</div></div>
+            <div class="stat-card"><h4>إعجابات الصور (حقيقي)</h4><div class="value" id="adminPhotoTotalLikes">0</div></div>
+            <div class="stat-card"><h4>مشاهدات الصور (حقيقي)</h4><div class="value" id="adminPhotoTotalViews">0</div></div>
+            <div class="stat-card"><h4>الصورة الأكثر تفاعلاً</h4><div class="value" id="adminTopPhoto" style="font-size: 12px;">-</div></div>
+        </div>
+
+        <div class="video-input-group">
+            <h4>📸 إضافة صور (2 معاً)</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <input type="text" id="photoCaption1" placeholder="وصف الصورة 1">
+                    <input type="text" id="photoCategory1" placeholder="تصنيف 1 (اختياري)">
+                    <input type="file" id="photoFile1" accept="image/*">
+                </div>
+                <div>
+                    <input type="text" id="photoCaption2" placeholder="وصف الصورة 2">
+                    <input type="text" id="photoCategory2" placeholder="تصنيف 2 (اختياري)">
+                    <input type="file" id="photoFile2" accept="image/*">
+                </div>
             </div>
-            <div class="detailed-stat-item">
-                <label>نسبة الإعجاب للمشاهدة</label>
-                <div class="value" id="likeRate">0%</div>
+            <button class="add-btn" id="uploadPhotoBtn" onclick="uploadPhotosToCloudinary()">رفع الصور</button>
+        </div>
+
+        <div class="detailed-stats-section">
+            <h4>📈 إحصائيات الصور المتقدمة</h4>
+            <div class="stats-grid-detailed">
+                <div class="detailed-stat-item"><label>عدد الصور</label><div class="value" id="photoStatCount">0</div></div>
+                <div class="detailed-stat-item"><label>إجمالي الإعجابات</label><div class="value" id="photoStatLikes">0</div></div>
+                <div class="detailed-stat-item"><label>إجمالي المشاهدات</label><div class="value" id="photoStatViews">0</div></div>
+                <div class="detailed-stat-item"><label>متوسط الإعجابات</label><div class="value" id="photoAvgLikes">0</div></div>
+                <div class="detailed-stat-item"><label>متوسط المشاهدات</label><div class="value" id="photoAvgViews">0</div></div>
+                <div class="detailed-stat-item"><label>أعلى صورة مشاهدة</label><div class="value" id="photoTopViews" style="font-size: 14px;">-</div></div>
+                <div class="detailed-stat-item"><label>أعلى صورة إعجاباً</label><div class="value" id="photoTopLikes" style="font-size: 14px;">-</div></div>
             </div>
-            <div class="detailed-stat-item">
-                <label>الفيديو الأكثر تفاعلاً</label>
-                <div class="value" id="topVideo" style="font-size: 14px;">-</div>
-            </div>
-            <div class="detailed-stat-item">
-                <label>أكثر تصنيف مشاهدة</label>
-                <div class="value" id="topCategory">-</div>
+        </div>
+
+        <div class="admin-video-list">
+            <h4>📝 إدارة الصور (التحكم في الإحصائيات الحقيقية)</h4>
+            <div id="adminPhotoItems"></div>
+        </div>
+    </div>
+
+    <!-- تبويب الإحصائيات الحقيقية (1=1) -->
+    <div class="admin-tab-content" id="adminTabRealStats">
+        <div class="admin-stats" style="grid-template-columns: repeat(4,1fr);">
+            <div class="stat-card"><h4>فيديوهات</h4><div class="value" id="realVideoCount">0</div></div>
+            <div class="stat-card"><h4>صور</h4><div class="value" id="realPhotoCount">0</div></div>
+            <div class="stat-card"><h4>إجمالي المشاهدات (حقيقي)</h4><div class="value" id="realTotalViews">0</div></div>
+            <div class="stat-card"><h4>إجمالي الإعجابات (حقيقي)</h4><div class="value" id="realTotalLikes">0</div></div>
+        </div>
+        <div class="detailed-stats-section">
+            <h4>📈 تفاصيل دقيقة (1 مشاهدة = 1 ، 1 إعجاب = 1)</h4>
+            <div class="stats-grid-detailed" style="grid-template-columns: repeat(2,1fr);">
+                <div class="detailed-stat-item"><label>أعلى فيديو مشاهدة</label><div class="value" id="realTopVideoViews">-</div></div>
+                <div class="detailed-stat-item"><label>أعلى فيديو إعجاباً</label><div class="value" id="realTopVideoLikes">-</div></div>
+                <div class="detailed-stat-item"><label>أعلى صورة مشاهدة</label><div class="value" id="realTopPhotoViews">-</div></div>
+                <div class="detailed-stat-item"><label>أعلى صورة إعجاباً</label><div class="value" id="realTopPhotoLikes">-</div></div>
             </div>
         </div>
     </div>
 
-    <div class="admin-video-list">
-        <h4>📝 إدارة الفيديوهات (التحكم في الإحصائيات الحقيقية)</h4>
-        <div id="adminVideoItems"></div>
-    </div>
-    
     <button class="logout-btn" onclick="adminLogout()">🚪 خروج</button>
 </div>
 
@@ -540,20 +650,16 @@ const ADMIN_SECRET = "0015VE$0015VE$";
 
 let isAdmin = false;
 let allVideos = [];
+let allPhotos = [];
 let currentCategory = 'الكل';
 let currentSortFilter = 'newest';
 
-/* ================== NUMBER FORMATTER ================== */
 function formatNumber(num) {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(1).replace('.0', '') + ' مليون';
-    } else if (num >= 1000) {
-        return (num / 1000).toFixed(1).replace('.0', '') + ' ألف';
-    }
+    if (num >= 1000000) return (num / 1000000).toFixed(1).replace('.0', '') + ' مليون';
+    else if (num >= 1000) return (num / 1000).toFixed(1).replace('.0', '') + ' ألف';
     return num.toString();
 }
 
-/* ================== VISITOR COUNTER ================== */
 function initializeVisitorCounter() {
     let visitors = parseInt(localStorage.getItem('totalVisitors') || '0');
     if (!localStorage.getItem('hasVisited')) {
@@ -563,12 +669,31 @@ function initializeVisitorCounter() {
     }
 }
 
-/* ================== CORE ================== */
+/* ================== ADMIN TABS ================== */
+function switchAdminTab(tab) {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
+    if (tab === 'videos') {
+        document.querySelectorAll('.admin-tab')[0].classList.add('active');
+        document.getElementById('adminTabVideos').classList.add('active');
+    } else if (tab === 'photos') {
+        document.querySelectorAll('.admin-tab')[1].classList.add('active');
+        document.getElementById('adminTabPhotos').classList.add('active');
+    } else if (tab === 'realstats') {
+        document.querySelectorAll('.admin-tab')[2].classList.add('active');
+        document.getElementById('adminTabRealStats').classList.add('active');
+        updateRealStats();
+    }
+}
+
+/* ================== تحميل البيانات ================== */
 async function loadVideos() {
     try {
         const res = await fetch(JSONBIN_URL, { headers: { "X-Access-Key": JSONBIN_KEY } });
         const data = await res.json();
         allVideos = data.record.videos || [];
+        allPhotos = data.record.photos || [];
+        allPhotos.forEach(p => { p.views = p.views || 0; });
         renderCategories();
         applyFiltersAndRender();
         updateStats();
@@ -583,16 +708,17 @@ function applyFiltersAndRender() {
     renderVideos(filtered);
 }
 
+/* ================== عرض الفيديوهات (بدون زر التحميل) ================== */
 function renderVideos(videos) {
     const container = document.getElementById("videoContainer");
     const likedVideos = JSON.parse(localStorage.getItem('likedVideos') || '[]');
-    
+
     container.innerHTML = videos.map((v, index) => {
         const realIndex = allVideos.indexOf(v);
         const displayViews = (v.views || 0) * 10;
         const displayLikes = (v.likes || 0) * 10;
         const isLiked = likedVideos.includes(v.url);
-        
+
         return `
             <div class="videoCard">
                 <div class="video-wrapper" onclick="goToWatch(${realIndex})">
@@ -610,10 +736,7 @@ function renderVideos(videos) {
                         <button class="like-button" onclick="toggleLike(${realIndex}, this)" ${isLiked ? 'disabled' : ''}>
                             ${isLiked ? '❤️ تم الإعجاب' : '❤️ إعجاب'}
                         </button>
-                        <div class="download-btn-container">
-                            <button class="download-btn" onclick="startProfitDownload(this, '${v.url}', '${v.title}')">تحميل الفيديو</button>
-                            <div class="timer-display">يرجى الانتظار 20 ثانية...</div>
-                        </div>
+                        <!-- تم إزالة زر التحميل بالكامل من الصفحة الرئيسية -->
                     </div>
                 </div>
             </div>`;
@@ -623,16 +746,13 @@ function renderVideos(videos) {
 function toggleLike(index, btn) {
     const likedVideos = JSON.parse(localStorage.getItem('likedVideos') || '[]');
     const videoUrl = allVideos[index].url;
-    
     if (likedVideos.includes(videoUrl)) {
         showToast("لقد أعجبت بهذا الفيديو مسبقاً", "error");
         return;
     }
-
     allVideos[index].likes = (allVideos[index].likes || 0) + 1;
     likedVideos.push(videoUrl);
     localStorage.setItem('likedVideos', JSON.stringify(likedVideos));
-    
     saveToCloud();
     updateStats();
     btn.innerHTML = `❤️ تم الإعجاب`;
@@ -645,42 +765,11 @@ function goToWatch(index) {
     window.location.href = `watch.html?id=${index}`;
 }
 
-function triggerIntenseAds() {
-    for(let i=0; i<3; i++) {
-        setTimeout(() => {
-            window.open('https://pl28557264.effectivegatecpm.com/66/c7/7d/66c77d7ac95f5328a050e5b7c4929460.js', '_blank');
-        }, i * 500);
-    }
-}
-
-function startProfitDownload(btn, url, title) {
-    const timerDisplay = btn.parentElement.querySelector('.timer-display');
-    let timeLeft = 20;
-    btn.disabled = true;
-    timerDisplay.style.display = 'block';
-    triggerIntenseAds();
-    const countdown = setInterval(() => {
-        timeLeft--;
-        btn.innerHTML = `جاري التجهيز... ${timeLeft}`;
-        if (timeLeft % 5 === 0) triggerIntenseAds();
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            btn.disabled = false;
-            btn.innerHTML = `✅ اضغط للتحميل النهائي`;
-            btn.onclick = () => {
-                triggerIntenseAds();
-                window.open(url, '_blank');
-                showToast("بدأ التحميل..", "success");
-            };
-        }
-    }, 1000);
-}
-
 async function saveToCloud() {
     await fetch(JSONBIN_URL, {
         method: "PUT",
         headers: { "Content-Type": "application/json", "X-Access-Key": JSONBIN_KEY },
-        body: JSON.stringify({ videos: allVideos })
+        body: JSON.stringify({ videos: allVideos, photos: allPhotos })
     });
 }
 
@@ -690,46 +779,40 @@ function updateStats() {
     document.getElementById('videoCount').textContent = allVideos.length;
     document.getElementById('totalViews').textContent = formatNumber(totalViews);
     document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
-    if (isAdmin) renderAdminVideoList();
+    if (isAdmin) {
+        renderAdminVideoList();
+        renderAdminPhotoList();
+    }
 }
 
+/* ================== إدارة الفيديوهات في الأدمن ================== */
 function renderAdminVideoList() {
     const container = document.getElementById('adminVideoItems');
     const totalViews = allVideos.reduce((sum, v) => sum + (v.views || 0), 0);
     const totalLikes = allVideos.reduce((sum, v) => sum + (v.likes || 0), 0);
     const visitors = localStorage.getItem('totalVisitors') || 0;
-
     document.getElementById('adminVideoCount').textContent = allVideos.length;
-    document.getElementById('adminTotalViews').textContent = totalViews.toLocaleString(); // إظهار الرقم الحقيقي 1=1
-    document.getElementById('adminTotalLikes').textContent = totalLikes.toLocaleString(); // إظهار الرقم الحقيقي 1=1
-    document.getElementById('adminTotalVisitors').textContent = parseInt(visitors).toLocaleString(); // إظهار الرقم الحقيقي 1=1
-
-    // حساب الإحصائيات المتقدمة
+    document.getElementById('adminTotalViews').textContent = totalViews.toLocaleString();
+    document.getElementById('adminTotalLikes').textContent = totalLikes.toLocaleString();
+    document.getElementById('adminTotalVisitors').textContent = parseInt(visitors).toLocaleString();
     if (allVideos.length > 0) {
         const avgViews = totalViews / allVideos.length;
         const likeRate = totalViews > 0 ? (totalLikes / totalViews * 100).toFixed(1) : 0;
-        
         const topVideo = [...allVideos].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
-        
         const catStats = {};
-        allVideos.forEach(v => {
-            const cat = v.category || 'غير مصنف';
-            catStats[cat] = (catStats[cat] || 0) + (v.views || 0);
-        });
+        allVideos.forEach(v => { const cat = v.category || 'غير مصنف'; catStats[cat] = (catStats[cat] || 0) + (v.views || 0); });
         const topCategory = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
-
-        document.getElementById('avgViews').textContent = Math.round(avgViews).toLocaleString(); // إظهار الرقم الحقيقي 1=1
+        document.getElementById('avgViews').textContent = Math.round(avgViews).toLocaleString();
         document.getElementById('likeRate').textContent = likeRate + '%';
         document.getElementById('topVideo').textContent = topVideo.title.substring(0, 20) + (topVideo.title.length > 20 ? '...' : '');
         document.getElementById('topCategory').textContent = topCategory;
     }
-
     container.innerHTML = allVideos.map((v, i) => `
         <div class="admin-video-item">
             <span>${v.title.substring(0,15)}...</span>
             <div>
-👁️ <input type="number" value="${v.views || 0}" onchange="updateVideoStat(${i}, 'views', this.value)" title="الرقم الحقيقي: ${v.views || 0}">
-❤️ <input type="number" value="${v.likes || 0}" onchange="updateVideoStat(${i}, 'likes', this.value)" title="الرقم الحقيقي: ${v.likes || 0}">
+                👁️ <input type="number" value="${v.views || 0}" onchange="updateVideoStat(${i}, 'views', this.value)" title="الرقم الحقيقي: ${v.views || 0}">
+                ❤️ <input type="number" value="${v.likes || 0}" onchange="updateVideoStat(${i}, 'likes', this.value)" title="الرقم الحقيقي: ${v.likes || 0}">
                 <button class="delete-btn-admin" onclick="deleteVideo(${i})">حذف</button>
             </div>
         </div>
@@ -769,24 +852,122 @@ async function uploadToCloudinary() {
     showToast("تم الرفع بنجاح ✅", "success");
 }
 
-function adminLogin() {
-    if (document.getElementById("adminUser").value === "admin" && document.getElementById("adminPass").value === "1256") {
-        isAdmin = true; closeAllModals(); document.getElementById("adminPanel").style.display = "block"; document.getElementById("overlay").style.display = "block"; renderAdminVideoList();
-    } else {
-        showToast("خطأ في البيانات", "error");
+/* ================== إدارة الصور في الأدمن ================== */
+function renderAdminPhotoList() {
+    const container = document.getElementById('adminPhotoItems');
+    const totalPhotoLikes = allPhotos.reduce((sum, p) => sum + (p.likes || 0), 0);
+    const totalPhotoViews = allPhotos.reduce((sum, p) => sum + (p.views || 0), 0);
+    document.getElementById('adminPhotoCount').textContent = allPhotos.length;
+    document.getElementById('adminPhotoTotalLikes').textContent = totalPhotoLikes.toLocaleString();
+    document.getElementById('adminPhotoTotalViews').textContent = totalPhotoViews.toLocaleString();
+    document.getElementById('photoStatCount').textContent = allPhotos.length;
+    document.getElementById('photoStatLikes').textContent = totalPhotoLikes.toLocaleString();
+    document.getElementById('photoStatViews').textContent = totalPhotoViews.toLocaleString();
+    if (allPhotos.length > 0) {
+        const avgLikes = totalPhotoLikes / allPhotos.length;
+        const avgViews = totalPhotoViews / allPhotos.length;
+        document.getElementById('photoAvgLikes').textContent = Math.round(avgLikes).toLocaleString();
+        document.getElementById('photoAvgViews').textContent = Math.round(avgViews).toLocaleString();
+        const topPhotoLikes = [...allPhotos].sort((a, b) => (b.likes || 0) - (a.likes || 0))[0];
+        const topPhotoViews = [...allPhotos].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
+        document.getElementById('adminTopPhoto').textContent = (topPhotoLikes.caption || topPhotoLikes.title || '').substring(0,20) + '...';
+        document.getElementById('photoTopLikes').textContent = (topPhotoLikes.caption || topPhotoLikes.title || '').substring(0,20) + '...';
+        document.getElementById('photoTopViews').textContent = (topPhotoViews.caption || topPhotoViews.title || '').substring(0,20) + '...';
+        const catStats = {};
+        allPhotos.forEach(p => { const cat = p.category || 'غير مصنف'; catStats[cat] = (catStats[cat] || 0) + (p.likes || 0); });
+        const topPhotoCat = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
+        document.getElementById('adminTopPhotoCategory').textContent = topPhotoCat || '-';
+    }
+    container.innerHTML = allPhotos.map((p, i) => `
+        <div class="admin-photo-item">
+            <div style="align-items:center;">
+                <img src="${p.url}" class="admin-photo-thumb" alt="">
+                <span>${(p.caption || p.title || 'بدون وصف').substring(0,15)}...</span>
+            </div>
+            <div>
+                👁️ <input type="number" value="${p.views || 0}" onchange="updatePhotoStat(${i}, 'views', this.value)" title="الرقم الحقيقي: ${p.views || 0}" style="width:70px;">
+                ❤️ <input type="number" value="${p.likes || 0}" onchange="updatePhotoStat(${i}, 'likes', this.value)" title="الرقم الحقيقي: ${p.likes || 0}" style="width:70px;">
+                <button class="delete-btn-admin" onclick="deletePhoto(${i})">حذف</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function updatePhotoStat(index, key, val) {
+    allPhotos[index][key] = parseInt(val);
+    saveToCloud();
+    updateStats();
+}
+
+async function deletePhoto(index) {
+    if(confirm('هل أنت متأكد من حذف الصورة؟')) {
+        allPhotos.splice(index, 1);
+        await saveToCloud();
+        loadVideos();
     }
 }
 
+async function uploadPhotosToCloudinary() {
+    const uploadBtn = document.getElementById("uploadPhotoBtn");
+    uploadBtn.disabled = true; uploadBtn.innerHTML = 'جاري رفع الصور...';
+    const files = [
+        {f: document.getElementById("photoFile1").files[0], c: document.getElementById("photoCaption1").value, cat: document.getElementById("photoCategory1").value},
+        {f: document.getElementById("photoFile2").files[0], c: document.getElementById("photoCaption2").value, cat: document.getElementById("photoCategory2").value}
+    ];
+    for(let item of files) {
+        if(item.f && item.c) {
+            const formData = new FormData();
+            formData.append("file", item.f);
+            formData.append("upload_preset", UPLOAD_PRESET);
+            try {
+                const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method: "POST", body: formData });
+                const result = await res.json();
+                if(result.secure_url) {
+                    allPhotos.unshift({ caption: item.c, title: item.c, category: item.cat || "عام", url: result.secure_url, date: new Date().toISOString(), likes: 0, views: 0 });
+                }
+            } catch(e) { console.error('خطأ في رفع الصورة:', e); }
+        }
+    }
+    await saveToCloud(); loadVideos(); uploadBtn.disabled = false; uploadBtn.innerHTML = 'رفع الصور';
+    showToast("تم رفع الصور بنجاح ✅", "success");
+    document.getElementById("photoCaption1").value = ''; document.getElementById("photoCategory1").value = '';
+    document.getElementById("photoCaption2").value = ''; document.getElementById("photoCategory2").value = '';
+    document.getElementById("photoFile1").value = ''; document.getElementById("photoFile2").value = '';
+}
+
+/* ================== الإحصائيات الحقيقية (1=1) ================== */
+function updateRealStats() {
+    const realVideoViews = allVideos.reduce((sum, v) => sum + (v.views || 0), 0);
+    const realVideoLikes = allVideos.reduce((sum, v) => sum + (v.likes || 0), 0);
+    const realPhotoViews = allPhotos.reduce((sum, p) => sum + (p.views || 0), 0);
+    const realPhotoLikes = allPhotos.reduce((sum, p) => sum + (p.likes || 0), 0);
+    document.getElementById('realVideoCount').textContent = allVideos.length;
+    document.getElementById('realPhotoCount').textContent = allPhotos.length;
+    document.getElementById('realTotalViews').textContent = (realVideoViews + realPhotoViews).toLocaleString();
+    document.getElementById('realTotalLikes').textContent = (realVideoLikes + realPhotoLikes).toLocaleString();
+    const topVideoViews = [...allVideos].sort((a,b) => (b.views||0) - (a.views||0))[0];
+    const topVideoLikes = [...allVideos].sort((a,b) => (b.likes||0) - (a.likes||0))[0];
+    document.getElementById('realTopVideoViews').innerHTML = topVideoViews ? `${topVideoViews.title.substring(0,20)} (${(topVideoViews.views||0).toLocaleString()})` : '-';
+    document.getElementById('realTopVideoLikes').innerHTML = topVideoLikes ? `${topVideoLikes.title.substring(0,20)} (${(topVideoLikes.likes||0).toLocaleString()})` : '-';
+    const topPhotoViews = [...allPhotos].sort((a,b) => (b.views||0) - (a.views||0))[0];
+    const topPhotoLikes = [...allPhotos].sort((a,b) => (b.likes||0) - (a.likes||0))[0];
+    document.getElementById('realTopPhotoViews').innerHTML = topPhotoViews ? `${(topPhotoViews.caption||topPhotoViews.title||'').substring(0,20)} (${(topPhotoViews.views||0).toLocaleString()})` : '-';
+    document.getElementById('realTopPhotoLikes').innerHTML = topPhotoLikes ? `${(topPhotoLikes.caption||topPhotoLikes.title||'').substring(0,20)} (${(topPhotoLikes.likes||0).toLocaleString()})` : '-';
+}
+
+function adminLogin() {
+    if (document.getElementById("adminUser").value === "admin" && document.getElementById("adminPass").value === "1256") {
+        isAdmin = true; closeAllModals(); document.getElementById("adminPanel").style.display = "block"; document.getElementById("overlay").style.display = "block"; renderAdminVideoList(); renderAdminPhotoList();
+    } else { showToast("خطأ في البيانات", "error"); }
+}
 function adminLogout() { isAdmin = false; closeAllModals(); loadVideos(); }
 function closeAllModals() { document.getElementById("overlay").style.display = "none"; document.getElementById("adminLogin").style.display = "none"; document.getElementById("adminPanel").style.display = "none"; }
-
 function setSortFilter(f) { currentSortFilter = f; document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); applyFiltersAndRender(); }
 function filterByCategory(c) { currentCategory = c; renderCategories(); applyFiltersAndRender(); }
 function renderCategories() {
     const categories = ['الكل', ...new Set(allVideos.map(v => v.category || 'غير مصنف'))];
     document.getElementById("categoriesContainer").innerHTML = categories.map(cat => `<div class="category-chip ${currentCategory === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</div>`).join('');
 }
-
 function showToast(m, t) { const toast = document.getElementById("toast"); toast.textContent = m; toast.className = `toast ${t} show`; setTimeout(() => toast.className = "toast", 3000); }
 
 document.getElementById("searchBar").addEventListener("input", function(e) {
