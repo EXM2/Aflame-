@@ -313,7 +313,7 @@
             display: none !important;
         }
 
-        /* ===== باقي الأنماط كما هي (لم يتم حذف أي شيء) ===== */
+        /* ===== باقي الأنماط كما هي ===== */
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 
         #adminLogin, #adminPanel {
@@ -463,7 +463,9 @@
     <div class="header-content">
         <div class="header-right">
             <i class="fas fa-search" style="cursor: pointer; font-size: 24px; color: #ffffff;" onclick="document.getElementById('searchBar').focus();"></i>
-            <a href="photos.html" class="header-nav-link" title="قسم الصور"><i class="fas fa-camera"></i></a>
+            <a href="image.html" class="header-nav-link" title="قسم الصور">
+                <i class="fas fa-images"></i>
+            </a>
         </div>
         <div class="header-center">
             <div class="header-title">أفلام T</div>
@@ -804,7 +806,7 @@ function renderAdminVideoList() {
         const topCategory = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
         document.getElementById('avgViews').textContent = Math.round(avgViews).toLocaleString();
         document.getElementById('likeRate').textContent = likeRate + '%';
-        document.getElementById('topVideo').textContent = topVideo.title.substring(0, 20) + (topVideo.title.length > 20 ? '...' : '');
+        document.getElementById('topVideo').textContent = topVideo.title.substring(0,20) + (topVideo.title.length > 20 ? '...' : '');
         document.getElementById('topCategory').textContent = topCategory;
     }
     container.innerHTML = allVideos.map((v, i) => `
