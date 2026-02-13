@@ -2,14 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="clckd" content="18fce206d10c3b7a494f6e5b949045c2" />
+    <title>أفلام T | مشاهدة أفضل الأفلام والمسلسلات أونلاين 2026</title>
+    <meta name="description" content="شاهد أفضل وأحدث الأفلام والمسلسلات بجودة عالية وبدون تقطيع. تحديث يومي لأقوىاباحي سيكس  لحس المهبل سحاقيات سيكس محلي نار هادئة بنات جميلات مراهقات شرجي بناتي وزوجي شرموطه مصريه أفلام الأكشن والرعب والدراما.">
+    <meta name="keywords" content="أفلام, مشاهدة أفلام, أفلام 2026, أفلام أكشن, أفلام رعب, مسلسلات, مشاهدة اونلاين">
+    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أفلام T | مشاهدة أفضل الأفلام والمسلسلات</title>
-    <meta name="description" content="أفلام T هو موقع يقدم روابط مشاهدة أفضل الأفلام والمسلسلات بجودة عالية.">
-    <meta name="keywords" content="أفلام T, مشاهدة أفلام, مسلسلات, مشاهدة مسلسلات, أفلام عربية, أفلام أجنبية, أفضل أفلام, أفلام HD, روابط أفلام مباشرة, مشاهدة أفلام أونلاين">
+
+    <!-- تحسين الظهور في فيسبوك -->
+    <meta property="og:title" content="أفلام T - أفضل موقع porno ph purno parno xxx xnxx xxnx مشاهدة أفلام 2026">
+    <meta property="og:description" content="أفضل منصة لمشاهدة أحدث الأفلام والمسلسلات بجودة عالية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exm2.github.io/Aflame-/">
+
+    <!-- تحسين الظهور في تويتر -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أفلام T | مشاهدة أحدث الأفلام">
+    <meta name="twitter:description" content="شاهد أحدث الأفلام والمسلسلات بجودة عالية وبدون تقطيع.">
+
+    <!-- الرابط الأساسي (Canonical) -->
+    <link rel="canonical" href="https://exm2.github.io/Aflame-/">
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* جميع الأنماط كما هي دون تغيير */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -212,7 +229,7 @@
         /* ========== فيديوهات الصفحة الرئيسية ========== */
         #videoContainer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr) !important; /* صفين فقط */
+            grid-template-columns: repeat(2, 1fr) !important;
             gap: 25px;
             padding: 20px;
             max-width: 1400px;
@@ -253,9 +270,8 @@
         }
         .play-overlay i { font-size: 60px; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
 
-        /* تم تقليل المساحة البيضاء حول الفيديو */
         .video-info {
-            padding: 12px 15px;  /* كان 18px 20px */
+            padding: 12px 15px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
         }
 
@@ -263,7 +279,7 @@
             font-size: 18px;
             font-weight: 700;
             color: #1e88e5;
-            margin-bottom: 8px; /* تقليل المسافة */
+            margin-bottom: 8px;
         }
 
         .video-category-tag {
@@ -283,17 +299,16 @@
             margin-top: 8px;
         }
 
-        /* زر الإعجاب بحجم أصغر قليلاً */
         .like-button {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 10px; /* كان 12px */
+            padding: 10px;
             background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 100%);
             color: white;
             border: none;
-            border-radius: 12px; /* كان 15px */
+            border-radius: 12px;
             cursor: pointer;
             font-size: 15px;
             font-weight: 700;
@@ -308,12 +323,10 @@
             box-shadow: none;
         }
 
-        /* إخفاء زر التحميل نهائياً من الصفحة الرئيسية */
         .download-btn-container {
             display: none !important;
         }
 
-        /* ===== باقي الأنماط كما هي ===== */
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 
         #adminLogin, #adminPanel {
@@ -409,7 +422,6 @@
             overflow: hidden;
         }
 
-        /* ================== ADMIN TABS ================== */
         .admin-tabs {
             display: flex;
             gap: 10px;
@@ -738,7 +750,6 @@ function renderVideos(videos) {
                         <button class="like-button" onclick="toggleLike(${realIndex}, this)" ${isLiked ? 'disabled' : ''}>
                             ${isLiked ? '❤️ تم الإعجاب' : '❤️ إعجاب'}
                         </button>
-                        <!-- تم إزالة زر التحميل بالكامل من الصفحة الرئيسية -->
                     </div>
                 </div>
             </div>`;
