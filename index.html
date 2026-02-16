@@ -2,37 +2,14 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="clckd" content="18fce206d10c3b7a494f6e5b949045c2" />
-    <title>أفلام T | مشاهدة أفلام للكبار +18 | Aflam T Adult</title>
-    <meta name="description" content="أفلام T هو موقع لمشاهدة أفلام للكبار +18 بجودة عالية. محتوى حصري للراشدين. | Aflam T offers adult movies +18 in HD quality. Exclusive content for adults.">
-    <meta name="keywords" content="أفلام للكبار, أفلام +18, أفلام راشدين, adult movies, +18 movies, مشاهدة أفلام للكبار">
-    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- أيقونة الموقع (Favicon) -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
-    <!-- صورة المعاينة للمشاركات الاجتماعية -->
-    <meta property="og:image" content="https://exm2.github.io/Aflame-/images/og-image.jpg">
-    <meta property="og:title" content="أفلام T - مشاهدة أفلام للكبار +18">
-    <meta property="og:description" content="موقع متخصص في أفلام الكبار +18 بجودة عالية.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://exm2.github.io/Aflame-/">
-
-    <!-- تحسين الظهور في تويتر -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="أفلام T | أفلام +18">
-    <meta name="twitter:description" content="مشاهدة أفلام للكبار +18 بجودة عالية.">
-    <meta name="twitter:image" content="https://exm2.github.io/Aflame-/images/og-image.jpg">
-
-    <!-- الرابط الأساسي (Canonical) -->
-    <link rel="canonical" href="https://exm2.github.io/Aflame-/">
-
-    <!-- خطوط وأيقونات -->
+    <title>أفلام T | مشاهدة أفضل الأفلام والمسلسلات</title>
+    <meta name="description" content="أفلام T هو موقع يقدم روابط مشاهدة أفضل الأفلام والمسلسلات بجودة عالية.">
+    <meta name="keywords" content="أفلام T, مشاهدة أفلام, مسلسلات, مشاهدة مسلسلات, أفلام عربية, أفلام أجنبية, أفضل أفلام, أفلام HD, روابط أفلام مباشرة, مشاهدة أفلام أونلاين">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* جميع الأنماط كما هي دون تغيير */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -235,7 +212,7 @@
         /* ========== فيديوهات الصفحة الرئيسية ========== */
         #videoContainer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(2, 1fr) !important; /* صفين فقط */
             gap: 25px;
             padding: 20px;
             max-width: 1400px;
@@ -276,8 +253,9 @@
         }
         .play-overlay i { font-size: 60px; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
 
+        /* تم تقليل المساحة البيضاء حول الفيديو */
         .video-info {
-            padding: 12px 15px;
+            padding: 12px 15px;  /* كان 18px 20px */
             background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
         }
 
@@ -285,7 +263,7 @@
             font-size: 18px;
             font-weight: 700;
             color: #1e88e5;
-            margin-bottom: 8px;
+            margin-bottom: 8px; /* تقليل المسافة */
         }
 
         .video-category-tag {
@@ -305,16 +283,17 @@
             margin-top: 8px;
         }
 
+        /* زر الإعجاب بحجم أصغر قليلاً */
         .like-button {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 10px;
+            padding: 10px; /* كان 12px */
             background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 100%);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 12px; /* كان 15px */
             cursor: pointer;
             font-size: 15px;
             font-weight: 700;
@@ -329,10 +308,12 @@
             box-shadow: none;
         }
 
+        /* إخفاء زر التحميل نهائياً من الصفحة الرئيسية */
         .download-btn-container {
             display: none !important;
         }
 
+        /* ===== باقي الأنماط كما هي ===== */
         #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 
         #adminLogin, #adminPanel {
@@ -428,6 +409,7 @@
             overflow: hidden;
         }
 
+        /* ================== ADMIN TABS ================== */
         .admin-tabs {
             display: flex;
             gap: 10px;
@@ -471,20 +453,10 @@
 </head>
 <body oncontextmenu="return false;">
 
-<!-- تحذير +18 -->
-<div id="ageWarning" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;text-align:center;padding:20px;transition:opacity 0.5s;">
-    <h1 style="font-size:2em;margin-bottom:10px;">تحذير: محتوى للكبار +18</h1>
-    <p style="font-size:1.2em;">يجب أن تكون 18 سنة أو أكثر للدخول إلى الموقع.</p>
-    <div style="margin-top:20px;">
-        <button id="enterSite" style="padding:10px 25px;font-size:18px;margin:5px;cursor:pointer;background:#e74c3c;border:none;color:#fff;border-radius:5px;">أنا +18</button>
-        <button id="leaveSite" style="padding:10px 25px;font-size:18px;margin:5px;cursor:pointer;background:#555;border:none;color:#fff;border-radius:5px;">خروج</button>
-    </div>
-</div>
-
 <div class="seo-hidden-text">
-    <h1>أفلام T للكبار</h1>
-    <h2>مشاهدة أفلام +18 أونلاين</h2>
-    <p>موقع أفلام T يوفر لك تجربة فريدة لمشاهدة أحدث الأفلام الحصرية للكبار +18 بجودة عالية.</p>
+    <h1>أفلام T</h1>
+    <h2>مشاهدة أفضل الأفلام والمسلسلات أونلاين</h2>
+    <p>موقع أفلام T يوفر لك تجربة فريدة لمشاهدة أحدث الأفلام والمسلسلات بجودة عالية. استمتع بمشاهدة أفلام عربية وأجنبية وروابط مباشرة وحصرية فقط على أفلام T.</p>
 </div>
 
 <header>
@@ -766,6 +738,7 @@ function renderVideos(videos) {
                         <button class="like-button" onclick="toggleLike(${realIndex}, this)" ${isLiked ? 'disabled' : ''}>
                             ${isLiked ? '❤️ تم الإعجاب' : '❤️ إعجاب'}
                         </button>
+                        <!-- تم إزالة زر التحميل بالكامل من الصفحة الرئيسية -->
                     </div>
                 </div>
             </div>`;
@@ -1006,26 +979,6 @@ document.getElementById("searchBar").addEventListener("input", function(e) {
 });
 
 document.addEventListener("DOMContentLoaded", () => { initializeVisitorCounter(); loadVideos(); });
-
-// كود التحذير +18
-(function() {
-    const ageWarning = document.getElementById('ageWarning');
-    const enterBtn = document.getElementById('enterSite');
-    const leaveBtn = document.getElementById('leaveSite');
-
-    if (localStorage.getItem('ageVerified') === 'true') {
-        ageWarning.style.display = 'none';
-    }
-
-    enterBtn.addEventListener('click', () => {
-        ageWarning.style.display = 'none';
-        localStorage.setItem('ageVerified', 'true');
-    });
-
-    leaveBtn.addEventListener('click', () => {
-        window.location.href = "https://www.google.com";
-    });
-})();
 </script>
 </body>
 </html>
