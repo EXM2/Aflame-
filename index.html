@@ -2,30 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta name="clckd" content="18fce206d10c3b7a494f6e5b949045c2" />
+    <title>أفلام T | مشاهدة أفلام للكبار +18 | Aflam T Adult</title>
+    <meta name="description" content="أفلام T هو موقع لمشاهدة أفلام للكبار +18 بجودة عالية. محتوى حصري للراشدين. | Aflam T offers adult movies +18 in HD quality. Exclusive content for adults.">
+    <meta name="keywords" content="أفلام للكبار, أفلام +18, أفلام راشدين, adult movies, +18 movies, مشاهدة أفلام للكبار">
+    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أفلام T | مشاهدة أفضل الأفلام والمسلسلات</title>
-    <meta name="description" content="أفلام T هو موقع يقدم روابط مشاهدة أفضل الأفلام والمسلسلات بجودة عالية.">
-    <meta name="keywords" content="أفلام T, مشاهدة أفلام, مسلسلات, مشاهدة مسلسلات, أفلام عربية, أفلام أجنبية, أفضل أفلام, أفلام HD, روابط أفلام مباشرة, مشاهدة أفلام أونلاين">
+
+    <!-- أيقونة الموقع (Favicon) -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- صورة المعاينة للمشاركات الاجتماعية -->
+    <meta property="og:image" content="https://exm2.github.io/Aflame-/images/og-image.jpg">
+    <meta property="og:title" content="أفلام T - مشاهدة أفلام للكبار +18">
+    <meta property="og:description" content="موقع متخصص في أفلام الكبار +18 بجودة عالية.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exm2.github.io/Aflame-/">
+
+    <!-- تحسين الظهور في تويتر -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أفلام T | أفلام +18">
+    <meta name="twitter:description" content="مشاهدة أفلام للكبار +18 بجودة عالية.">
+    <meta name="twitter:image" content="https://exm2.github.io/Aflame-/images/og-image.jpg">
+
+    <!-- الرابط الأساسي (Canonical) -->
+    <link rel="canonical" href="https://exm2.github.io/Aflame-/">
+
+    <!-- خطوط وأيقونات -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
+        /* ===== جميع الأنماط السابقة (محسنة) ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2f 50%, #16213e 100%);
             min-height: 100vh;
-            color: #333;
+            color: #fff;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #7f5af0 0%, #2cb67d 100%);
             padding: 8px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
@@ -67,7 +91,7 @@
             font-family: 'serif';
             font-weight: 900;
             font-size: 28px;
-            color: #ff69b4;
+            color: #ff8fa3;
             font-style: italic;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
@@ -88,31 +112,26 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            animation: none;
             margin-left: 0;
         }
         .header-nav-link:hover { transform: scale(1.15); color: #ffeb3b; }
-        .header-nav-link i { animation: none; margin-left: 0; }
 
         .search-container {
             max-width: 600px;
             margin: 20px auto 10px;
             padding: 0 20px;
             position: relative;
-            transform: translateY(0);
             transition: transform 0.3s;
         }
 
-        .search-container:focus-within {
-            transform: translateY(-2px);
-        }
+        .search-container:focus-within { transform: translateY(-2px); }
 
         #searchBar {
             width: 100%;
             padding: 14px 50px 14px 25px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.9);
             font-size: 16px;
             font-family: 'Cairo', sans-serif;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -120,8 +139,7 @@
         }
 
         #searchBar:focus {
-            box-shadow: 0 20px 60px rgba(30,136,229,0.4);
-            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(127,90,240,0.4);
             outline: none;
         }
 
@@ -130,7 +148,7 @@
             left: 40px;
             top: 50%;
             transform: translateY(-50%);
-            color: #1e88e5;
+            color: #7f5af0;
             font-size: 20px;
         }
 
@@ -155,13 +173,12 @@
             transition: all 0.3s;
             font-size: 14px;
             font-weight: 600;
-            font-family: 'Cairo', sans-serif;
         }
 
         .filter-btn.active {
-            background: #ff6b6b;
-            border-color: #ff6b6b;
-            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+            background: #ff8fa3;
+            border-color: #ff8fa3;
+            box-shadow: 0 5px 15px rgba(255,143,163,0.4);
         }
 
         .categories-container {
@@ -172,6 +189,7 @@
             gap: 10px;
             overflow-x: auto;
             scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
         .categories-container::-webkit-scrollbar { display: none; }
 
@@ -187,8 +205,8 @@
             font-size: 14px;
         }
         .category-chip.active {
-            background: #ff6b6b;
-            border-color: #ff6b6b;
+            background: #ff8fa3;
+            border-color: #ff8fa3;
         }
 
         .stats-bar {
@@ -207,30 +225,38 @@
         }
 
         .stat-item { display: flex; align-items: center; gap: 8px; }
-        .stat-item i { font-size: 18px; color: #ffeb3b; }
+        .stat-item i { font-size: 18px; color: #ffd700; }
 
-        /* ========== فيديوهات الصفحة الرئيسية ========== */
+        /* ===== فيديوهات الصفحة الرئيسية ===== */
         #videoContainer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr) !important; /* صفين فقط */
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             padding: 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        @media (max-width: 480px) {
+            #videoContainer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+        }
+
         .videoCard {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            background: #000;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             overflow: hidden;
-            transition: all 0.4s;
-            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #333;
         }
 
         .videoCard:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 80px rgba(30,136,229,0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.1);
         }
 
         .video-wrapper {
@@ -238,225 +264,464 @@
             aspect-ratio: 16/9;
             background: #000;
             cursor: pointer;
+            overflow: hidden;
         }
 
-        .videoCard video { width: 100%; height: 100%; display: block; }
+        .videoCard video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
 
-        .play-overlay {
+        .video-wrapper::after {
+            content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
         }
-        .play-overlay i { font-size: 60px; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
 
-        /* تم تقليل المساحة البيضاء حول الفيديو */
+        .video-wrapper:hover::after { opacity: 1; }
+        .video-wrapper:hover .play-icon-hover {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .play-icon-hover {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            color: white;
+            font-size: 50px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.7);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 10;
+            pointer-events: none;
+        }
+
         .video-info {
-            padding: 12px 15px;  /* كان 18px 20px */
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+            padding: 8px 10px;
+            background: #111;
+            color: #fff;
+            border-top: 1px solid #333;
         }
 
-        .videoCard h4 {
-            font-size: 18px;
+        .video-info h4 {
+            font-size: 16px;
             font-weight: 700;
-            color: #1e88e5;
-            margin-bottom: 8px; /* تقليل المسافة */
+            color: #fff;
+            margin-bottom: 4px;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .video-category-tag {
             display: inline-block;
-            padding: 2px 10px;
-            background: #e3f2fd;
-            color: #1e88e5;
-            border-radius: 5px;
+            padding: 2px 8px;
+            background: #ff8fa3;
+            color: #fff;
+            border-radius: 16px;
             font-size: 11px;
             font-weight: 700;
         }
 
-        .action-buttons {
+        .meta-stats {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 8px;
+            gap: 12px;
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 4px;
         }
+        .meta-stats i { margin-left: 4px; color: #ffd700; }
 
-        /* زر الإعجاب بحجم أصغر قليلاً */
-        .like-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px; /* كان 12px */
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 100%);
-            color: white;
-            border: none;
-            border-radius: 12px; /* كان 15px */
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 700;
-            font-family: 'Cairo', sans-serif;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255,71,87,0.3);
+        /* ===== لوحة الإدارة الفاخرة (محدثة بالكامل) ===== */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
         }
-
-        .like-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
-        /* إخفاء زر التحميل نهائياً من الصفحة الرئيسية */
-        .download-btn-container {
-            display: none !important;
-        }
-
-        /* ===== باقي الأنماط كما هي ===== */
-        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 
         #adminLogin, #adminPanel {
             display: none;
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 25px;
+            background: #1e1e2f;
+            border-radius: 30px;
             z-index: 1001;
-            width: 90%;
-            max-width: 750px;
+            width: 95%;
+            max-width: 1200px;
             max-height: 90vh;
             overflow-y: auto;
-        }
-
-        #adminLogin h3, #adminPanel h3 { text-align: center; color: #1e88e5; margin-bottom: 25px; font-size: 24px; }
-
-        .admin-stats {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            color: #fff;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,215,0,0.2);
             padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
         }
 
-        .stat-card { background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .stat-card h4 { color: #1e88e5; font-size: 12px; margin-bottom: 8px; }
-        .stat-card .value { color: #ff4757; font-size: 20px; font-weight: 800; }
-
-        .video-input-group { background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 2px dashed #e0e0e0; }
-
-        input, textarea { padding: 12px 15px; width: 100%; border-radius: 10px; border: 2px solid #e0e0e0; font-family: 'Cairo'; margin-bottom: 10px; font-size: 14px; }
-
-        .login-btn, .add-btn { background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%); color: white; padding: 15px; width: 100%; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; font-family: 'Cairo'; }
-
-        .close-btn { background: #f5f5f5; color: #666; padding: 12px; width: 100%; border-radius: 10px; border: none; cursor: pointer; margin-top: 10px; font-family: 'Cairo'; }
-
-        .logout-btn { background: #eb3349; color: white; padding: 15px; width: 100%; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; margin-top: 20px; }
-
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #333; color: white; padding: 15px 30px; border-radius: 50px; font-weight: 600; z-index: 2000; transition: all 0.4s; opacity: 0; }
-        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-        .toast.success { background: #4caf50; }
-        .toast.error { background: #f44336; }
-
-        .admin-video-list { margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; }
-        .admin-video-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
-        .admin-video-item div { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
-        .admin-video-item input { width: 70px; margin-bottom: 0; padding: 5px; text-align: center; }
-        .delete-btn-admin { background: #ff4757; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; }
-
-        .detailed-stats-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: #fdfdfd;
-            border-radius: 15px;
-            border: 1px solid #eee;
+        #adminLogin {
+            max-width: 380px;
+            background: linear-gradient(145deg, #2d2d44, #1e1e2f);
+            text-align: center;
+            border: 1px solid #ffd700;
         }
-        .stats-grid-detailed {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+
+        #adminLogin h3 {
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-size: 28px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
-        .detailed-stat-item {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+        #adminLogin input {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,215,0,0.3);
+            color: #fff;
+            margin-bottom: 15px;
+            border-radius: 50px;
+            padding: 14px 20px;
+            width: 100%;
+        }
+
+        #adminLogin input:focus { border-color: #ffd700; }
+
+        .admin-header {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .admin-header h3 {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-header button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #ff8fa3;
+            color: #ff8fa3;
+            padding: 8px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
             gap: 5px;
         }
-        .detailed-stat-item label {
-            font-size: 12px;
-            color: #888;
-            font-weight: 600;
-        }
-        .detailed-stat-item .value {
-            font-size: 18px;
-            color: #1e88e5;
-            font-weight: 800;
+
+        .admin-header button:hover {
+            background: #ff8fa3;
+            color: #1e1e2f;
         }
 
-        .seo-hidden-text {
-            display: none;
-            visibility: hidden;
-            height: 0;
-            width: 0;
-            overflow: hidden;
-        }
-
-        /* ================== ADMIN TABS ================== */
+        /* تبويبات قابلة للتمرير */
         .admin-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            gap: 8px;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            scrollbar-width: thin;
+            scrollbar-color: #ffd700 #2d2d44;
+            -webkit-overflow-scrolling: touch;
         }
+
+        .admin-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        .admin-tabs::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
         .admin-tab {
-            padding: 10px 20px;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 10px 10px 0 0;
+            padding: 10px 18px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 50px;
             cursor: pointer;
             font-family: 'Cairo', sans-serif;
             font-weight: 700;
             font-size: 14px;
-            color: #666;
+            color: #aaa;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .admin-tab i { font-size: 16px; }
+
+        .admin-tab.active {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #1e1e2f;
+            border-color: #ffd700;
+            box-shadow: 0 0 15px #ffd700;
+        }
+
+        /* بطاقات إحصائيات */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card-modern {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 20px 15px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card-modern:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+        }
+
+        .stat-card-modern i {
+            font-size: 32px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .stat-card-modern h4 {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+
+        .stat-card-modern .value {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+        /* نموذج الإضافة */
+        .add-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px dashed rgba(255,215,0,0.3);
+        }
+
+        .add-section h4 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .add-form-group {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 15px;
+        }
+
+        .add-form-group input, .add-form-group textarea {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,215,0,0.2);
+            color: #fff;
+            margin-bottom: 8px;
+            border-radius: 12px;
+            padding: 10px;
+            width: 100%;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .add-form-group input:focus, .add-form-group textarea:focus {
+            border-color: #ffd700;
+            outline: none;
+        }
+
+        .add-btn-modern {
+            background: linear-gradient(135deg, #ffd700, #ff8fa3);
+            color: #1e1e2f;
+            font-weight: 800;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-btn-modern:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.5);
+        }
+
+        /* بطاقات المحتوى (محسنة لتعديل كل الحقول) */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .item-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255,215,0,0.2);
             transition: all 0.3s;
         }
-        .admin-tab.active {
-            background: linear-gradient(135deg, #1e88e5 0%, #764ba2 100%);
-            color: white;
-        }
-        .admin-tab-content {
-            display: none;
-        }
-        .admin-tab-content.active {
-            display: block;
+
+        .item-card:hover {
+            border-color: #ffd700;
+            background: rgba(255,255,255,0.08);
         }
 
-        .admin-photo-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; border-radius: 10px; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
-        .admin-photo-item div { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
-        .admin-photo-item input { width: 70px; margin-bottom: 0; padding: 5px; text-align: center; }
-        .admin-photo-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 8px; }
+        .item-media {
+            width: 100%;
+            height: 140px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
 
-        @media (max-width: 768px) {
-            #videoContainer { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
-            .admin-stats { grid-template-columns: repeat(2, 1fr); }
+        .item-media video, .item-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-info {
+            margin-bottom: 10px;
+        }
+
+        .item-info input, .item-info textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            padding: 6px 10px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .item-info input:focus, .item-info textarea:focus {
+            border-color: #ff8fa3;
+            outline: none;
+        }
+
+        .item-stats {
+            display: flex;
+            gap: 12px;
+            margin: 8px 0;
+            font-size: 12px;
+            color: #ccc;
+            flex-wrap: wrap;
+        }
+
+        .item-stats span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .item-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .item-controls button {
+            background: transparent;
+            border: 1px solid #ff8fa3;
+            color: #ff8fa3;
+            padding: 6px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .item-controls button:hover {
+            background: #ff8fa3;
+            color: #1e1e2f;
+        }
+
+        .item-controls button.save-btn {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+        .item-controls button.save-btn:hover {
+            background: #ffd700;
+            color: #1e1e2f;
+        }
+
+        /* الرسم البياني */
+        .chart-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 25px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        canvas { max-height: 250px; width: 100% !important; }
+
+        /* تحسينات للهاتف */
+        @media (max-width: 600px) {
+            .admin-header h3 { font-size: 20px; }
+            .stat-card-modern .value { font-size: 18px; }
+            .item-card { padding: 10px; }
+            .item-media { height: 120px; }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-<div class="seo-hidden-text">
-    <h1>أفلام T</h1>
-    <h2>مشاهدة أفضل الأفلام والمسلسلات أونلاين</h2>
-    <p>موقع أفلام T يوفر لك تجربة فريدة لمشاهدة أحدث الأفلام والمسلسلات بجودة عالية. استمتع بمشاهدة أفلام عربية وأجنبية وروابط مباشرة وحصرية فقط على أفلام T.</p>
+<!-- تحذير +18 -->
+<div id="ageWarning" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;text-align:center;padding:20px;transition:opacity 0.5s;">
+    <h1 style="font-size:2em;margin-bottom:10px;">تحذير: محتوى للكبار +18</h1>
+    <p style="font-size:1.2em;">يجب أن تكون 18 سنة أو أكثر للدخول إلى الموقع.</p>
+    <div style="margin-top:20px;">
+        <button id="enterSite" style="padding:10px 25px;font-size:18px;margin:5px;cursor:pointer;background:#ff8fa3;border:none;color:#1e1e2f;border-radius:50px;font-weight:700;">أنا +18</button>
+        <button id="leaveSite" style="padding:10px 25px;font-size:18px;margin:5px;cursor:pointer;background:#555;border:none;color:#fff;border-radius:50px;">خروج</button>
+    </div>
 </div>
 
 <header>
@@ -499,486 +764,712 @@
 
 <div id="videoContainer"></div>
 
+<!-- Overlay -->
 <div id="overlay" onclick="closeAllModals()"></div>
 
+<!-- نافذة تسجيل الدخول -->
 <div id="adminLogin">
-    <h3>🔐 دخول الأدمن</h3>
+    <h3><i class="fas fa-lock"></i> دخول الأدمن</h3>
     <input type="text" id="adminUser" placeholder="اسم المستخدم">
     <input type="password" id="adminPass" placeholder="كلمة المرور">
-    <button class="login-btn" onclick="adminLogin()">دخول</button>
-    <button class="close-btn" onclick="closeAllModals()">إغلاق</button>
+    <button class="login-btn" onclick="adminLogin()" style="background: linear-gradient(135deg, #ffd700, #ff8fa3); color:#1e1e2f; font-weight:800; border:none; border-radius:50px; padding:15px; width:100%; font-size:18px;">دخول</button>
+    <button class="close-btn" onclick="closeAllModals()" style="background:transparent; border:1px solid #aaa; color:#aaa; border-radius:50px; padding:12px; width:100%; margin-top:10px;">إغلاق</button>
 </div>
 
+<!-- لوحة الإدارة الجديدة (مُصلحة بالكامل) -->
 <div id="adminPanel">
-    <h3>📊 لوحة التحكم (بيانات حقيقية)</h3>
-
-    <div class="admin-tabs">
-        <button class="admin-tab active" onclick="switchAdminTab('videos')">🎬 الفيديوهات</button>
-        <button class="admin-tab" onclick="switchAdminTab('photos')">📸 الصور</button>
-        <button class="admin-tab" onclick="switchAdminTab('realstats')">📊 إحصائيات حقيقية</button>
+    <div class="admin-header">
+        <h3><i class="fas fa-crown" style="color:#ffd700;"></i> لوحة التحكم الفاخرة</h3>
+        <button onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> خروج</button>
     </div>
 
-    <!-- تبويب الفيديوهات -->
-    <div class="admin-tab-content active" id="adminTabVideos">
-        <div class="admin-stats">
-            <div class="stat-card"><h4>الفيديوهات</h4><div class="value" id="adminVideoCount">0</div></div>
-            <div class="stat-card"><h4>المشاهدات (حقيقي)</h4><div class="value" id="adminTotalViews">0</div></div>
-            <div class="stat-card"><h4>الإعجابات (حقيقي)</h4><div class="value" id="adminTotalLikes">0</div></div>
-            <div class="stat-card"><h4>الزوار</h4><div class="value" id="adminTotalVisitors">0</div></div>
+    <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchAdminTab('dashboard')"><i class="fas fa-chart-pie"></i> الرئيسية</button>
+        <button class="admin-tab" onclick="switchAdminTab('videos')"><i class="fas fa-video"></i> فيديوهات</button>
+        <button class="admin-tab" onclick="switchAdminTab('photos')"><i class="fas fa-images"></i> صور</button>
+        <button class="admin-tab" onclick="switchAdminTab('stats')"><i class="fas fa-chart-line"></i> إحصائيات</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="admin-tab-content active" id="adminTabDashboard">
+        <div class="stats-grid">
+            <div class="stat-card-modern">
+                <i class="fas fa-video"></i>
+                <h4>الفيديوهات</h4>
+                <div class="value" id="dashVideoCount">0</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-image"></i>
+                <h4>الصور</h4>
+                <div class="value" id="dashPhotoCount">0</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-eye"></i>
+                <h4>إجمالي المشاهدات</h4>
+                <div class="value" id="dashTotalViews">0</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-heart"></i>
+                <h4>إجمالي الإعجابات</h4>
+                <div class="value" id="dashTotalLikes">0</div>
+            </div>
         </div>
 
-        <div class="video-input-group">
-            <h4>🎬 إضافة فيديوهات (2 معاً)</h4>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div>
-                    <input type="text" id="videoTitle1" placeholder="عنوان 1">
+        <div class="chart-container">
+            <canvas id="statsChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Videos -->
+    <div class="admin-tab-content" id="adminTabVideos">
+        <div class="add-section">
+            <h4><i class="fas fa-plus-circle"></i> إضافة فيديوهات</h4>
+            <div class="add-form-grid">
+                <div class="add-form-group">
+                    <input type="text" id="videoTitle1" placeholder="عنوان الفيديو 1">
                     <input type="text" id="videoCategory1" placeholder="تصنيف 1">
                     <input type="file" id="videoFile1" accept="video/*">
                 </div>
-                <div>
-                    <input type="text" id="videoTitle2" placeholder="عنوان 2">
+                <div class="add-form-group">
+                    <input type="text" id="videoTitle2" placeholder="عنوان الفيديو 2">
                     <input type="text" id="videoCategory2" placeholder="تصنيف 2">
                     <input type="file" id="videoFile2" accept="video/*">
                 </div>
             </div>
-            <button class="add-btn" id="uploadBtn" onclick="uploadToCloudinary()">رفع الفيديوهات</button>
+            <button class="add-btn-modern" id="uploadBtn" onclick="uploadToCloudinary()"><i class="fas fa-cloud-upload-alt"></i> رفع الفيديوهات</button>
         </div>
 
-        <div class="detailed-stats-section">
-            <h4>📈 إحصائيات متقدمة</h4>
-            <div class="stats-grid-detailed">
-                <div class="detailed-stat-item">
-                    <label>متوسط المشاهدات لكل فيديو</label>
-                    <div class="value" id="avgViews">0</div>
-                </div>
-                <div class="detailed-stat-item">
-                    <label>نسبة الإعجاب للمشاهدة</label>
-                    <div class="value" id="likeRate">0%</div>
-                </div>
-                <div class="detailed-stat-item">
-                    <label>الفيديو الأكثر تفاعلاً</label>
-                    <div class="value" id="topVideo" style="font-size: 14px;">-</div>
-                </div>
-                <div class="detailed-stat-item">
-                    <label>أكثر تصنيف مشاهدة</label>
-                    <div class="value" id="topCategory">-</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="admin-video-list">
-            <h4>📝 إدارة الفيديوهات (التحكم في الإحصائيات الحقيقية)</h4>
-            <div id="adminVideoItems"></div>
-        </div>
+        <h4 style="color:#ffd700; margin-bottom:15px;"><i class="fas fa-list"></i> قائمة الفيديوهات</h4>
+        <div class="items-grid" id="adminVideoItems"></div>
     </div>
 
-    <!-- تبويب الصور -->
+    <!-- Photos -->
     <div class="admin-tab-content" id="adminTabPhotos">
-        <div class="admin-stats">
-            <div class="stat-card"><h4>الصور</h4><div class="value" id="adminPhotoCount">0</div></div>
-            <div class="stat-card"><h4>إعجابات الصور (حقيقي)</h4><div class="value" id="adminPhotoTotalLikes">0</div></div>
-            <div class="stat-card"><h4>مشاهدات الصور (حقيقي)</h4><div class="value" id="adminPhotoTotalViews">0</div></div>
-            <div class="stat-card"><h4>الصورة الأكثر تفاعلاً</h4><div class="value" id="adminTopPhoto" style="font-size: 12px;">-</div></div>
-        </div>
-
-        <div class="video-input-group">
-            <h4>📸 إضافة صور (2 معاً)</h4>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div>
+        <div class="add-section">
+            <h4><i class="fas fa-plus-circle"></i> إضافة صور</h4>
+            <div class="add-form-grid">
+                <div class="add-form-group">
                     <input type="text" id="photoCaption1" placeholder="وصف الصورة 1">
-                    <input type="text" id="photoCategory1" placeholder="تصنيف 1 (اختياري)">
+                    <input type="text" id="photoCategory1" placeholder="تصنيف 1">
                     <input type="file" id="photoFile1" accept="image/*">
                 </div>
-                <div>
+                <div class="add-form-group">
                     <input type="text" id="photoCaption2" placeholder="وصف الصورة 2">
-                    <input type="text" id="photoCategory2" placeholder="تصنيف 2 (اختياري)">
+                    <input type="text" id="photoCategory2" placeholder="تصنيف 2">
                     <input type="file" id="photoFile2" accept="image/*">
                 </div>
             </div>
-            <button class="add-btn" id="uploadPhotoBtn" onclick="uploadPhotosToCloudinary()">رفع الصور</button>
+            <button class="add-btn-modern" id="uploadPhotoBtn" onclick="uploadPhotosToCloudinary()"><i class="fas fa-cloud-upload-alt"></i> رفع الصور</button>
         </div>
 
-        <div class="detailed-stats-section">
-            <h4>📈 إحصائيات الصور المتقدمة</h4>
-            <div class="stats-grid-detailed">
-                <div class="detailed-stat-item"><label>عدد الصور</label><div class="value" id="photoStatCount">0</div></div>
-                <div class="detailed-stat-item"><label>إجمالي الإعجابات</label><div class="value" id="photoStatLikes">0</div></div>
-                <div class="detailed-stat-item"><label>إجمالي المشاهدات</label><div class="value" id="photoStatViews">0</div></div>
-                <div class="detailed-stat-item"><label>متوسط الإعجابات</label><div class="value" id="photoAvgLikes">0</div></div>
-                <div class="detailed-stat-item"><label>متوسط المشاهدات</label><div class="value" id="photoAvgViews">0</div></div>
-                <div class="detailed-stat-item"><label>أعلى صورة مشاهدة</label><div class="value" id="photoTopViews" style="font-size: 14px;">-</div></div>
-                <div class="detailed-stat-item"><label>أعلى صورة إعجاباً</label><div class="value" id="photoTopLikes" style="font-size: 14px;">-</div></div>
-            </div>
-        </div>
-
-        <div class="admin-video-list">
-            <h4>📝 إدارة الصور (التحكم في الإحصائيات الحقيقية)</h4>
-            <div id="adminPhotoItems"></div>
-        </div>
+        <h4 style="color:#ffd700; margin-bottom:15px;"><i class="fas fa-list"></i> قائمة الصور</h4>
+        <div class="items-grid" id="adminPhotoItems"></div>
     </div>
 
-    <!-- تبويب الإحصائيات الحقيقية (1=1) -->
-    <div class="admin-tab-content" id="adminTabRealStats">
-        <div class="admin-stats" style="grid-template-columns: repeat(4,1fr);">
-            <div class="stat-card"><h4>فيديوهات</h4><div class="value" id="realVideoCount">0</div></div>
-            <div class="stat-card"><h4>صور</h4><div class="value" id="realPhotoCount">0</div></div>
-            <div class="stat-card"><h4>إجمالي المشاهدات (حقيقي)</h4><div class="value" id="realTotalViews">0</div></div>
-            <div class="stat-card"><h4>إجمالي الإعجابات (حقيقي)</h4><div class="value" id="realTotalLikes">0</div></div>
-        </div>
-        <div class="detailed-stats-section">
-            <h4>📈 تفاصيل دقيقة (1 مشاهدة = 1 ، 1 إعجاب = 1)</h4>
-            <div class="stats-grid-detailed" style="grid-template-columns: repeat(2,1fr);">
-                <div class="detailed-stat-item"><label>أعلى فيديو مشاهدة</label><div class="value" id="realTopVideoViews">-</div></div>
-                <div class="detailed-stat-item"><label>أعلى فيديو إعجاباً</label><div class="value" id="realTopVideoLikes">-</div></div>
-                <div class="detailed-stat-item"><label>أعلى صورة مشاهدة</label><div class="value" id="realTopPhotoViews">-</div></div>
-                <div class="detailed-stat-item"><label>أعلى صورة إعجاباً</label><div class="value" id="realTopPhotoLikes">-</div></div>
+    <!-- Stats -->
+    <div class="admin-tab-content" id="adminTabStats">
+        <div class="stats-grid">
+            <div class="stat-card-modern">
+                <i class="fas fa-chart-bar"></i>
+                <h4>متوسط مشاهدات الفيديو</h4>
+                <div class="value" id="avgViews">0</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-percent"></i>
+                <h4>نسبة الإعجاب</h4>
+                <div class="value" id="likeRate">0%</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-trophy"></i>
+                <h4>أفضل فيديو</h4>
+                <div class="value" id="topVideo" style="font-size:16px;">-</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-tags"></i>
+                <h4>أفضل تصنيف</h4>
+                <div class="value" id="topCategory">-</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-image"></i>
+                <h4>متوسط إعجابات الصور</h4>
+                <div class="value" id="photoAvgLikes">0</div>
+            </div>
+            <div class="stat-card-modern">
+                <i class="fas fa-eye"></i>
+                <h4>متوسط مشاهدات الصور</h4>
+                <div class="value" id="photoAvgViews">0</div>
             </div>
         </div>
     </div>
-
-    <button class="logout-btn" onclick="adminLogout()">🚪 خروج</button>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-/* ================== CONFIG ================== */
-const JSONBIN_ID = "698a066c43b1c97be9720f77";
-const JSONBIN_KEY = "$2a$10$mRvosdx/sF8SxjPQLSmW2ezcrLEIzWw6Jj3ZzSJ11XgIn6DLJ5wXS";
-const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
-const CLOUD_NAME    = "dawz4ahoc";
-const UPLOAD_PRESET = "video_upload";
-const ADMIN_SECRET = "0015VE$0015VE$";
+    /* ================== CONFIG ================== */
+    const JSONBIN_ID = "698a066c43b1c97be9720f77";
+    const JSONBIN_KEY = "$2a$10$mRvosdx/sF8SxjPQLSmW2ezcrLEIzWw6Jj3ZzSJ11XgIn6DLJ5wXS";
+    const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
+    const CLOUD_NAME    = "dawz4ahoc";
+    const UPLOAD_PRESET = "video_upload";
+    const ADMIN_SECRET = "0015VE$0015VE$";
 
-let isAdmin = false;
-let allVideos = [];
-let allPhotos = [];
-let currentCategory = 'الكل';
-let currentSortFilter = 'newest';
+    let isAdmin = false;
+    let allVideos = [];
+    let allPhotos = [];
+    let currentCategory = 'الكل';
+    let currentSortFilter = 'newest';
+    let statsChart = null;
 
-function formatNumber(num) {
-    if (num >= 1000000) return (num / 1000000).toFixed(1).replace('.0', '') + ' مليون';
-    else if (num >= 1000) return (num / 1000).toFixed(1).replace('.0', '') + ' ألف';
-    return num.toString();
-}
+    let lastScrollY = window.scrollY;
+    let scrollDirection = 'down';
+    let visibleVideos = new Set();
+    const MAX_SPEED = 3;
+    const THROTTLE_DELAY = 100;
+    let scrollTimeout;
 
-function initializeVisitorCounter() {
-    let visitors = parseInt(localStorage.getItem('totalVisitors') || '0');
-    if (!localStorage.getItem('hasVisited')) {
-        visitors++;
-        localStorage.setItem('hasVisited', 'true');
-        localStorage.setItem('totalVisitors', visitors.toString());
+    // ========== دوال مساعدة ==========
+    function formatNumber(num) {
+        if (num >= 1000000) return (num / 1000000).toFixed(1).replace('.0', '') + ' مليون';
+        else if (num >= 1000) return (num / 1000).toFixed(1).replace('.0', '') + ' ألف';
+        return num.toString();
     }
-}
 
-/* ================== ADMIN TABS ================== */
-function switchAdminTab(tab) {
-    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
-    if (tab === 'videos') {
-        document.querySelectorAll('.admin-tab')[0].classList.add('active');
-        document.getElementById('adminTabVideos').classList.add('active');
-    } else if (tab === 'photos') {
-        document.querySelectorAll('.admin-tab')[1].classList.add('active');
-        document.getElementById('adminTabPhotos').classList.add('active');
-    } else if (tab === 'realstats') {
-        document.querySelectorAll('.admin-tab')[2].classList.add('active');
-        document.getElementById('adminTabRealStats').classList.add('active');
-        updateRealStats();
+    function initializeVisitorCounter() {
+        let visitors = parseInt(localStorage.getItem('totalVisitors') || '0');
+        if (!localStorage.getItem('hasVisited')) {
+            visitors++;
+            localStorage.setItem('hasVisited', 'true');
+            localStorage.setItem('totalVisitors', visitors.toString());
+        }
     }
-}
 
-/* ================== تحميل البيانات ================== */
-async function loadVideos() {
-    try {
-        const res = await fetch(JSONBIN_URL, { headers: { "X-Access-Key": JSONBIN_KEY } });
-        const data = await res.json();
-        allVideos = data.record.videos || [];
-        allPhotos = data.record.photos || [];
-        allPhotos.forEach(p => { p.views = p.views || 0; });
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = `toast ${type} show`;
+        setTimeout(() => { toast.className = 'toast'; }, 3000);
+    }
+
+    // ========== دوال تبديل التبويبات (مُصلحة) ==========
+    function switchAdminTab(tab) {
+        // إزالة active من جميع التبويبات والمحتويات
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.remove('active'));
+
+        // تفعيل التبويب المطلوب
+        if (tab === 'dashboard') {
+            document.querySelectorAll('.admin-tab')[0].classList.add('active');
+            document.getElementById('adminTabDashboard').classList.add('active');
+            updateDashboardChart();
+        } else if (tab === 'videos') {
+            document.querySelectorAll('.admin-tab')[1].classList.add('active');
+            document.getElementById('adminTabVideos').classList.add('active');
+            renderAdminVideoList(); // عرض قائمة الفيديوهات
+        } else if (tab === 'photos') {
+            document.querySelectorAll('.admin-tab')[2].classList.add('active');
+            document.getElementById('adminTabPhotos').classList.add('active');
+            renderAdminPhotoList(); // عرض قائمة الصور
+        } else if (tab === 'stats') {
+            document.querySelectorAll('.admin-tab')[3].classList.add('active');
+            document.getElementById('adminTabStats').classList.add('active');
+            updateDetailedStats(); // تحديث الإحصائيات
+        }
+    }
+
+    // ========== تحميل البيانات من JSONBin ==========
+    async function loadVideos() {
+        try {
+            const res = await fetch(JSONBIN_URL, { headers: { "X-Access-Key": JSONBIN_KEY } });
+            const data = await res.json();
+            allVideos = data.record.videos || [];
+            allPhotos = data.record.photos || [];
+            // التأكد من وجود الخصائص
+            allVideos.forEach(v => { v.views = v.views || 0; v.likes = v.likes || 0; });
+            allPhotos.forEach(p => { p.views = p.views || 0; p.likes = p.likes || 0; });
+            renderCategories();
+            applyFiltersAndRender();
+            updateStats();
+            if (isAdmin) {
+                // تحديث كل أقسام الإدارة
+                renderAdminVideoList();
+                renderAdminPhotoList();
+                updateDashboardChart();
+                updateDetailedStats();
+            }
+        } catch (err) { 
+            console.error(err);
+            showToast('فشل تحميل البيانات', 'error');
+        }
+    }
+
+    // ========== دوال الفلاتر والعرض الرئيسي ==========
+    function applyFiltersAndRender() {
+        let filtered = currentCategory === 'الكل' ? allVideos : allVideos.filter(v => (v.category || 'غير مصنف') === currentCategory);
+        if (currentSortFilter === 'mostViewed') filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
+        else if (currentSortFilter === 'mostLiked') filtered.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+        else if (currentSortFilter === 'newest') filtered.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        renderVideos(filtered);
+    }
+
+    function renderVideos(videos) {
+        const container = document.getElementById("videoContainer");
+        container.innerHTML = videos.map((v, index) => {
+            const realIndex = allVideos.indexOf(v);
+            const displayViews = (v.views || 0) * 10;
+            const displayLikes = (v.likes || 0) * 10;
+            return `
+                <div class="videoCard" data-video-index="${realIndex}">
+                    <div class="video-wrapper" onclick="goToWatch(${realIndex})">
+                        <i class="fas fa-play-circle play-icon-hover"></i>
+                        <video preload="auto" autoplay muted loop playsinline>
+                            <source src="${v.url}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
+                            <span class="video-category-tag">${v.category || 'غير مصنف'}</span>
+                            <span style="font-size:11px; color:#ccc;"><i class="fas fa-eye"></i> ${formatNumber(displayViews)}</span>
+                        </div>
+                        <h4 title="${v.title}">${v.title}</h4>
+                        <div class="meta-stats">
+                            <span><i class="fas fa-heart" style="color:#ff8fa3;"></i> ${formatNumber(displayLikes)}</span>
+                            <span><i class="fas fa-calendar-alt"></i> ${new Date(v.date).toLocaleDateString('ar-EG')}</span>
+                        </div>
+                    </div>
+                </div>`;
+        }).join("");
+        observeVideos();
+    }
+
+    function observeVideos() {
+        const videos = document.querySelectorAll('.videoCard video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    visibleVideos.add(video);
+                    video.playbackRate = (scrollDirection === 'up') ? MAX_SPEED : 1;
+                } else {
+                    visibleVideos.delete(video);
+                }
+            });
+        }, { threshold: 0.5 });
+        videos.forEach(video => observer.observe(video));
+    }
+
+    function updateVisibleVideosSpeed() {
+        visibleVideos.forEach(video => {
+            video.playbackRate = (scrollDirection === 'up') ? MAX_SPEED : 1;
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) return;
+        scrollTimeout = setTimeout(() => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY < lastScrollY) scrollDirection = 'up';
+            else if (currentScrollY > lastScrollY) scrollDirection = 'down';
+            lastScrollY = currentScrollY;
+            updateVisibleVideosSpeed();
+            scrollTimeout = null;
+        }, THROTTLE_DELAY);
+    });
+
+    function goToWatch(index) {
+        window.location.href = `watch.html?id=${index}`;
+    }
+
+    // ========== الحفظ في JSONBin ==========
+    async function saveToCloud() {
+        try {
+            await fetch(JSONBIN_URL, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json", "X-Access-Key": JSONBIN_KEY },
+                body: JSON.stringify({ videos: allVideos, photos: allPhotos })
+            });
+        } catch (err) {
+            console.error(err);
+            showToast('فشل الحفظ', 'error');
+        }
+    }
+
+    // ========== تحديث الإحصائيات العامة ==========
+    function updateStats() {
+        const totalViews = allVideos.reduce((sum, v) => sum + ((v.views || 0) * 10), 0);
+        const totalLikes = allVideos.reduce((sum, v) => sum + ((v.likes || 0) * 10), 0);
+        document.getElementById('videoCount').textContent = allVideos.length;
+        document.getElementById('totalViews').textContent = formatNumber(totalViews);
+        document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
+        if (isAdmin) {
+            renderAdminVideoList();
+            renderAdminPhotoList();
+            updateDashboardChart();
+            updateDetailedStats();
+        }
+    }
+
+    // ========== دوال الإدارة ==========
+    function renderCategories() {
+        const categories = ['الكل', ...new Set(allVideos.map(v => v.category || 'غير مصنف'))];
+        document.getElementById("categoriesContainer").innerHTML = categories.map(cat => 
+            `<div class="category-chip ${currentCategory === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</div>`
+        ).join('');
+    }
+
+    function setSortFilter(filter) {
+        currentSortFilter = filter;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        applyFiltersAndRender();
+    }
+
+    function filterByCategory(category) {
+        currentCategory = category;
         renderCategories();
         applyFiltersAndRender();
-        updateStats();
-    } catch (err) { console.error(err); }
-}
+    }
 
-function applyFiltersAndRender() {
-    let filtered = currentCategory === 'الكل' ? allVideos : allVideos.filter(v => (v.category || 'غير مصنف') === currentCategory);
-    if (currentSortFilter === 'mostViewed') filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
-    else if (currentSortFilter === 'mostLiked') filtered.sort((a, b) => (b.likes || 0) - (a.likes || 0));
-    else if (currentSortFilter === 'newest') filtered.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-    renderVideos(filtered);
-}
+    // ========== دوال تحديث Dashboard ==========
+    function updateDashboardChart() {
+        if (!isAdmin) return;
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        if (statsChart) statsChart.destroy();
+        const categories = [...new Set(allVideos.map(v => v.category || 'غير مصنف'))];
+        const viewsPerCategory = categories.map(cat => 
+            allVideos.filter(v => (v.category || 'غير مصنف') === cat).reduce((sum, v) => sum + (v.views || 0), 0)
+        );
+        statsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: 'المشاهدات (حقيقي)',
+                    data: viewsPerCategory,
+                    backgroundColor: 'rgba(255, 215, 0, 0.8)',
+                    borderColor: '#ffd700',
+                    borderWidth: 2,
+                    borderRadius: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                },
+                scales: {
+                    y: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    x: { ticks: { color: '#fff', maxRotation: 45, minRotation: 30 }, grid: { display: false } }
+                }
+            }
+        });
 
-/* ================== عرض الفيديوهات (بدون زر التحميل) ================== */
-function renderVideos(videos) {
-    const container = document.getElementById("videoContainer");
-    const likedVideos = JSON.parse(localStorage.getItem('likedVideos') || '[]');
+        document.getElementById('dashVideoCount').textContent = allVideos.length;
+        document.getElementById('dashPhotoCount').textContent = allPhotos.length;
+        const totalViewsReal = allVideos.reduce((s, v) => s + (v.views || 0), 0) + allPhotos.reduce((s, p) => s + (p.views || 0), 0);
+        const totalLikesReal = allVideos.reduce((s, v) => s + (v.likes || 0), 0) + allPhotos.reduce((s, p) => s + (p.likes || 0), 0);
+        document.getElementById('dashTotalViews').textContent = totalViewsReal.toLocaleString();
+        document.getElementById('dashTotalLikes').textContent = totalLikesReal.toLocaleString();
+    }
 
-    container.innerHTML = videos.map((v, index) => {
-        const realIndex = allVideos.indexOf(v);
-        const displayViews = (v.views || 0) * 10;
-        const displayLikes = (v.likes || 0) * 10;
-        const isLiked = likedVideos.includes(v.url);
+    function updateDetailedStats() {
+        const totalViews = allVideos.reduce((sum, v) => sum + (v.views || 0), 0);
+        const totalLikes = allVideos.reduce((sum, v) => sum + (v.likes || 0), 0);
+        if (allVideos.length > 0) {
+            const avgViews = totalViews / allVideos.length;
+            const likeRate = totalViews > 0 ? (totalLikes / totalViews * 100).toFixed(1) : 0;
+            const topVideo = [...allVideos].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
+            const catStats = {};
+            allVideos.forEach(v => { const cat = v.category || 'غير مصنف'; catStats[cat] = (catStats[cat] || 0) + (v.views || 0); });
+            const topCategory = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
+            document.getElementById('avgViews').textContent = Math.round(avgViews).toLocaleString();
+            document.getElementById('likeRate').textContent = likeRate + '%';
+            document.getElementById('topVideo').textContent = topVideo.title.substring(0,20) + (topVideo.title.length > 20 ? '...' : '');
+            document.getElementById('topCategory').textContent = topCategory || '-';
+        }
 
-        return `
-            <div class="videoCard">
-                <div class="video-wrapper" onclick="goToWatch(${realIndex})">
-                    <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
-                    <video preload="metadata"><source src="${v.url}" type="video/mp4"></video>
+        const totalPhotoViews = allPhotos.reduce((s, p) => s + (p.views || 0), 0);
+        const totalPhotoLikes = allPhotos.reduce((s, p) => s + (p.likes || 0), 0);
+        if (allPhotos.length > 0) {
+            document.getElementById('photoAvgViews').textContent = Math.round(totalPhotoViews / allPhotos.length).toLocaleString();
+            document.getElementById('photoAvgLikes').textContent = Math.round(totalPhotoLikes / allPhotos.length).toLocaleString();
+        } else {
+            document.getElementById('photoAvgViews').textContent = '0';
+            document.getElementById('photoAvgLikes').textContent = '0';
+        }
+    }
+
+    // ========== عرض قائمة الفيديوهات في الإدارة (مع إمكانية التعديل) ==========
+    function renderAdminVideoList() {
+        const container = document.getElementById('adminVideoItems');
+        container.innerHTML = allVideos.map((v, i) => `
+            <div class="item-card" data-index="${i}">
+                <div class="item-media">
+                    <video src="${v.url}" muted loop></video>
                 </div>
-                <div class="video-info">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-                        <span class="video-category-tag">${v.category || 'غير مصنف'}</span>
-                        <span style="font-size:12px; color:#666;"><i class="fas fa-eye"></i> ${formatNumber(displayViews)}</span>
-                    </div>
-                    <h4>${v.title}</h4>
-                    <div style="font-size:12px; color:#777; margin-bottom:10px;"><i class="fas fa-heart"></i> ${formatNumber(displayLikes)} إعجاب</div>
-                    <div class="action-buttons">
-                        <button class="like-button" onclick="toggleLike(${realIndex}, this)" ${isLiked ? 'disabled' : ''}>
-                            ${isLiked ? '❤️ تم الإعجاب' : '❤️ إعجاب'}
-                        </button>
-                        <!-- تم إزالة زر التحميل بالكامل من الصفحة الرئيسية -->
+                <div class="item-info">
+                    <input type="text" class="edit-title" value="${v.title.replace(/"/g, '&quot;')}" placeholder="العنوان">
+                    <input type="text" class="edit-category" value="${v.category || 'عام'}" placeholder="التصنيف">
+                    <div class="item-stats">
+                        <span><i class="fas fa-eye"></i> <input type="number" class="edit-views" value="${v.views || 0}" style="width:60px; background:transparent; border:none; color:#ffd700;"></span>
+                        <span><i class="fas fa-heart" style="color:#ff8fa3;"></i> <input type="number" class="edit-likes" value="${v.likes || 0}" style="width:60px; background:transparent; border:none; color:#ff8fa3;"></span>
                     </div>
                 </div>
-            </div>`;
-    }).join("");
-}
-
-function toggleLike(index, btn) {
-    const likedVideos = JSON.parse(localStorage.getItem('likedVideos') || '[]');
-    const videoUrl = allVideos[index].url;
-    if (likedVideos.includes(videoUrl)) {
-        showToast("لقد أعجبت بهذا الفيديو مسبقاً", "error");
-        return;
-    }
-    allVideos[index].likes = (allVideos[index].likes || 0) + 1;
-    likedVideos.push(videoUrl);
-    localStorage.setItem('likedVideos', JSON.stringify(likedVideos));
-    saveToCloud();
-    updateStats();
-    btn.innerHTML = `❤️ تم الإعجاب`;
-    btn.disabled = true;
-    showToast("شكراً لإعجابك! ✅", "success");
-    setTimeout(() => { loadVideos(); }, 1000);
-}
-
-function goToWatch(index) {
-    window.location.href = `watch.html?id=${index}`;
-}
-
-async function saveToCloud() {
-    await fetch(JSONBIN_URL, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", "X-Access-Key": JSONBIN_KEY },
-        body: JSON.stringify({ videos: allVideos, photos: allPhotos })
-    });
-}
-
-function updateStats() {
-    const totalViews = allVideos.reduce((sum, v) => sum + ((v.views || 0) * 10), 0);
-    const totalLikes = allVideos.reduce((sum, v) => sum + ((v.likes || 0) * 10), 0);
-    document.getElementById('videoCount').textContent = allVideos.length;
-    document.getElementById('totalViews').textContent = formatNumber(totalViews);
-    document.getElementById('totalLikes').textContent = formatNumber(totalLikes);
-    if (isAdmin) {
-        renderAdminVideoList();
-        renderAdminPhotoList();
-    }
-}
-
-/* ================== إدارة الفيديوهات في الأدمن ================== */
-function renderAdminVideoList() {
-    const container = document.getElementById('adminVideoItems');
-    const totalViews = allVideos.reduce((sum, v) => sum + (v.views || 0), 0);
-    const totalLikes = allVideos.reduce((sum, v) => sum + (v.likes || 0), 0);
-    const visitors = localStorage.getItem('totalVisitors') || 0;
-    document.getElementById('adminVideoCount').textContent = allVideos.length;
-    document.getElementById('adminTotalViews').textContent = totalViews.toLocaleString();
-    document.getElementById('adminTotalLikes').textContent = totalLikes.toLocaleString();
-    document.getElementById('adminTotalVisitors').textContent = parseInt(visitors).toLocaleString();
-    if (allVideos.length > 0) {
-        const avgViews = totalViews / allVideos.length;
-        const likeRate = totalViews > 0 ? (totalLikes / totalViews * 100).toFixed(1) : 0;
-        const topVideo = [...allVideos].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
-        const catStats = {};
-        allVideos.forEach(v => { const cat = v.category || 'غير مصنف'; catStats[cat] = (catStats[cat] || 0) + (v.views || 0); });
-        const topCategory = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
-        document.getElementById('avgViews').textContent = Math.round(avgViews).toLocaleString();
-        document.getElementById('likeRate').textContent = likeRate + '%';
-        document.getElementById('topVideo').textContent = topVideo.title.substring(0,20) + (topVideo.title.length > 20 ? '...' : '');
-        document.getElementById('topCategory').textContent = topCategory;
-    }
-    container.innerHTML = allVideos.map((v, i) => `
-        <div class="admin-video-item">
-            <span>${v.title.substring(0,15)}...</span>
-            <div>
-                👁️ <input type="number" value="${v.views || 0}" onchange="updateVideoStat(${i}, 'views', this.value)" title="الرقم الحقيقي: ${v.views || 0}">
-                ❤️ <input type="number" value="${v.likes || 0}" onchange="updateVideoStat(${i}, 'likes', this.value)" title="الرقم الحقيقي: ${v.likes || 0}">
-                <button class="delete-btn-admin" onclick="deleteVideo(${i})">حذف</button>
+                <div class="item-controls">
+                    <button class="save-btn" onclick="saveVideoChanges(${i})"><i class="fas fa-save"></i> حفظ</button>
+                    <button onclick="deleteVideo(${i})"><i class="fas fa-trash"></i></button>
+                </div>
             </div>
-        </div>
-    `).join('');
-}
+        `).join('');
+    }
 
-function updateVideoStat(index, key, val) {
-    allVideos[index][key] = parseInt(val);
-    saveToCloud();
-    updateStats();
-}
+    // حفظ تغييرات الفيديو
+    function saveVideoChanges(index) {
+        const card = document.querySelector(`.item-card[data-index="${index}"]`);
+        if (!card) return;
+        const titleInput = card.querySelector('.edit-title');
+        const categoryInput = card.querySelector('.edit-category');
+        const viewsInput = card.querySelector('.edit-views');
+        const likesInput = card.querySelector('.edit-likes');
 
-async function deleteVideo(index) {
-    if(confirm('هل أنت متأكد من حذف الفيديو؟')) { allVideos.splice(index, 1); await saveToCloud(); loadVideos(); }
-}
+        allVideos[index].title = titleInput.value.trim() || 'بدون عنوان';
+        allVideos[index].category = categoryInput.value.trim() || 'عام';
+        allVideos[index].views = parseInt(viewsInput.value) || 0;
+        allVideos[index].likes = parseInt(likesInput.value) || 0;
 
-async function uploadToCloudinary() {
-    const uploadBtn = document.getElementById("uploadBtn");
-    uploadBtn.disabled = true; uploadBtn.innerHTML = 'جاري الرفع...';
-    const files = [
-        {f: document.getElementById("videoFile1").files[0], t: document.getElementById("videoTitle1").value, c: document.getElementById("videoCategory1").value},
-        {f: document.getElementById("videoFile2").files[0], t: document.getElementById("videoTitle2").value, c: document.getElementById("videoCategory2").value}
-    ];
-    for(let item of files) {
-        if(item.f && item.t) {
-            const formData = new FormData();
-            formData.append("file", item.f);
-            formData.append("upload_preset", UPLOAD_PRESET);
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/video/upload`, { method: "POST", body: formData });
-            const result = await res.json();
-            if(result.secure_url) {
-                allVideos.unshift({ title: item.t, category: item.c || "عام", url: result.secure_url, date: new Date().toISOString(), views: 0, likes: 0 });
+        saveToCloud().then(() => {
+            showToast('تم حفظ التغييرات', 'success');
+            updateStats(); // تحديث الإحصائيات
+        });
+    }
+
+    async function deleteVideo(index) {
+        if (confirm('هل أنت متأكد من حذف هذا الفيديو؟')) {
+            allVideos.splice(index, 1);
+            await saveToCloud();
+            loadVideos(); // إعادة تحميل كل شيء
+            showToast('تم الحذف', 'success');
+        }
+    }
+
+    // ========== عرض قائمة الصور في الإدارة (مع إمكانية التعديل) ==========
+    function renderAdminPhotoList() {
+        const container = document.getElementById('adminPhotoItems');
+        container.innerHTML = allPhotos.map((p, i) => `
+            <div class="item-card" data-photo-index="${i}">
+                <div class="item-media">
+                    <img src="${p.url}" alt="${p.caption || p.title}">
+                </div>
+                <div class="item-info">
+                    <input type="text" class="edit-caption" value="${(p.caption || p.title || '').replace(/"/g, '&quot;')}" placeholder="الوصف">
+                    <input type="text" class="edit-category" value="${p.category || 'عام'}" placeholder="التصنيف">
+                    <div class="item-stats">
+                        <span><i class="fas fa-eye"></i> <input type="number" class="edit-views" value="${p.views || 0}" style="width:60px; background:transparent; border:none; color:#ffd700;"></span>
+                        <span><i class="fas fa-heart" style="color:#ff8fa3;"></i> <input type="number" class="edit-likes" value="${p.likes || 0}" style="width:60px; background:transparent; border:none; color:#ff8fa3;"></span>
+                    </div>
+                </div>
+                <div class="item-controls">
+                    <button class="save-btn" onclick="savePhotoChanges(${i})"><i class="fas fa-save"></i> حفظ</button>
+                    <button onclick="deletePhoto(${i})"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function savePhotoChanges(index) {
+        const card = document.querySelector(`.item-card[data-photo-index="${index}"]`);
+        if (!card) return;
+        const captionInput = card.querySelector('.edit-caption');
+        const categoryInput = card.querySelector('.edit-category');
+        const viewsInput = card.querySelector('.edit-views');
+        const likesInput = card.querySelector('.edit-likes');
+
+        allPhotos[index].caption = captionInput.value.trim() || 'بدون وصف';
+        allPhotos[index].title = allPhotos[index].caption; // للمطابقة
+        allPhotos[index].category = categoryInput.value.trim() || 'عام';
+        allPhotos[index].views = parseInt(viewsInput.value) || 0;
+        allPhotos[index].likes = parseInt(likesInput.value) || 0;
+
+        saveToCloud().then(() => {
+            showToast('تم حفظ التغييرات', 'success');
+            updateStats();
+        });
+    }
+
+    async function deletePhoto(index) {
+        if (confirm('هل أنت متأكد من حذف هذه الصورة؟')) {
+            allPhotos.splice(index, 1);
+            await saveToCloud();
+            loadVideos();
+            showToast('تم الحذف', 'success');
+        }
+    }
+
+    // ========== رفع الفيديوهات إلى Cloudinary ==========
+    async function uploadToCloudinary() {
+        const uploadBtn = document.getElementById("uploadBtn");
+        uploadBtn.disabled = true; 
+        uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الرفع...';
+        
+        const files = [
+            {f: document.getElementById("videoFile1").files[0], t: document.getElementById("videoTitle1").value, c: document.getElementById("videoCategory1").value},
+            {f: document.getElementById("videoFile2").files[0], t: document.getElementById("videoTitle2").value, c: document.getElementById("videoCategory2").value}
+        ];
+        
+        for(let item of files) {
+            if(item.f && item.t) {
+                const formData = new FormData();
+                formData.append("file", item.f);
+                formData.append("upload_preset", UPLOAD_PRESET);
+                try {
+                    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/video/upload`, { method: "POST", body: formData });
+                    const result = await res.json();
+                    if(result.secure_url) {
+                        allVideos.unshift({ 
+                            title: item.t, 
+                            category: item.c || "عام", 
+                            url: result.secure_url, 
+                            date: new Date().toISOString(), 
+                            views: 0, 
+                            likes: 0 
+                        });
+                    }
+                } catch(e) { 
+                    console.error(e);
+                    showToast('فشل رفع فيديو', 'error');
+                }
             }
         }
+        await saveToCloud(); 
+        loadVideos(); 
+        uploadBtn.disabled = false; 
+        uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> رفع الفيديوهات';
+        showToast("تم الرفع بنجاح ✅", "success");
+        // تفريغ الحقول
+        document.getElementById("videoTitle1").value = ''; 
+        document.getElementById("videoCategory1").value = ''; 
+        document.getElementById("videoFile1").value = '';
+        document.getElementById("videoTitle2").value = ''; 
+        document.getElementById("videoCategory2").value = ''; 
+        document.getElementById("videoFile2").value = '';
     }
-    await saveToCloud(); loadVideos(); uploadBtn.disabled = false; uploadBtn.innerHTML = 'رفع الفيديوهات';
-    showToast("تم الرفع بنجاح ✅", "success");
-}
 
-/* ================== إدارة الصور في الأدمن ================== */
-function renderAdminPhotoList() {
-    const container = document.getElementById('adminPhotoItems');
-    const totalPhotoLikes = allPhotos.reduce((sum, p) => sum + (p.likes || 0), 0);
-    const totalPhotoViews = allPhotos.reduce((sum, p) => sum + (p.views || 0), 0);
-    document.getElementById('adminPhotoCount').textContent = allPhotos.length;
-    document.getElementById('adminPhotoTotalLikes').textContent = totalPhotoLikes.toLocaleString();
-    document.getElementById('adminPhotoTotalViews').textContent = totalPhotoViews.toLocaleString();
-    document.getElementById('photoStatCount').textContent = allPhotos.length;
-    document.getElementById('photoStatLikes').textContent = totalPhotoLikes.toLocaleString();
-    document.getElementById('photoStatViews').textContent = totalPhotoViews.toLocaleString();
-    if (allPhotos.length > 0) {
-        const avgLikes = totalPhotoLikes / allPhotos.length;
-        const avgViews = totalPhotoViews / allPhotos.length;
-        document.getElementById('photoAvgLikes').textContent = Math.round(avgLikes).toLocaleString();
-        document.getElementById('photoAvgViews').textContent = Math.round(avgViews).toLocaleString();
-        const topPhotoLikes = [...allPhotos].sort((a, b) => (b.likes || 0) - (a.likes || 0))[0];
-        const topPhotoViews = [...allPhotos].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
-        document.getElementById('adminTopPhoto').textContent = (topPhotoLikes.caption || topPhotoLikes.title || '').substring(0,20) + '...';
-        document.getElementById('photoTopLikes').textContent = (topPhotoLikes.caption || topPhotoLikes.title || '').substring(0,20) + '...';
-        document.getElementById('photoTopViews').textContent = (topPhotoViews.caption || topPhotoViews.title || '').substring(0,20) + '...';
-        const catStats = {};
-        allPhotos.forEach(p => { const cat = p.category || 'غير مصنف'; catStats[cat] = (catStats[cat] || 0) + (p.likes || 0); });
-        const topPhotoCat = Object.keys(catStats).sort((a, b) => catStats[b] - catStats[a])[0];
-        document.getElementById('adminTopPhotoCategory').textContent = topPhotoCat || '-';
-    }
-    container.innerHTML = allPhotos.map((p, i) => `
-        <div class="admin-photo-item">
-            <div style="align-items:center;">
-                <img src="${p.url}" class="admin-photo-thumb" alt="">
-                <span>${(p.caption || p.title || 'بدون وصف').substring(0,15)}...</span>
-            </div>
-            <div>
-                👁️ <input type="number" value="${p.views || 0}" onchange="updatePhotoStat(${i}, 'views', this.value)" title="الرقم الحقيقي: ${p.views || 0}" style="width:70px;">
-                ❤️ <input type="number" value="${p.likes || 0}" onchange="updatePhotoStat(${i}, 'likes', this.value)" title="الرقم الحقيقي: ${p.likes || 0}" style="width:70px;">
-                <button class="delete-btn-admin" onclick="deletePhoto(${i})">حذف</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-function updatePhotoStat(index, key, val) {
-    allPhotos[index][key] = parseInt(val);
-    saveToCloud();
-    updateStats();
-}
-
-async function deletePhoto(index) {
-    if(confirm('هل أنت متأكد من حذف الصورة؟')) {
-        allPhotos.splice(index, 1);
-        await saveToCloud();
-        loadVideos();
-    }
-}
-
-async function uploadPhotosToCloudinary() {
-    const uploadBtn = document.getElementById("uploadPhotoBtn");
-    uploadBtn.disabled = true; uploadBtn.innerHTML = 'جاري رفع الصور...';
-    const files = [
-        {f: document.getElementById("photoFile1").files[0], c: document.getElementById("photoCaption1").value, cat: document.getElementById("photoCategory1").value},
-        {f: document.getElementById("photoFile2").files[0], c: document.getElementById("photoCaption2").value, cat: document.getElementById("photoCategory2").value}
-    ];
-    for(let item of files) {
-        if(item.f && item.c) {
-            const formData = new FormData();
-            formData.append("file", item.f);
-            formData.append("upload_preset", UPLOAD_PRESET);
-            try {
-                const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method: "POST", body: formData });
-                const result = await res.json();
-                if(result.secure_url) {
-                    allPhotos.unshift({ caption: item.c, title: item.c, category: item.cat || "عام", url: result.secure_url, date: new Date().toISOString(), likes: 0, views: 0 });
+    // ========== رفع الصور إلى Cloudinary ==========
+    async function uploadPhotosToCloudinary() {
+        const uploadBtn = document.getElementById("uploadPhotoBtn");
+        uploadBtn.disabled = true; 
+        uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري رفع الصور...';
+        
+        const files = [
+            {f: document.getElementById("photoFile1").files[0], c: document.getElementById("photoCaption1").value, cat: document.getElementById("photoCategory1").value},
+            {f: document.getElementById("photoFile2").files[0], c: document.getElementById("photoCaption2").value, cat: document.getElementById("photoCategory2").value}
+        ];
+        
+        for(let item of files) {
+            if(item.f && item.c) {
+                const formData = new FormData();
+                formData.append("file", item.f);
+                formData.append("upload_preset", UPLOAD_PRESET);
+                try {
+                    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, { method: "POST", body: formData });
+                    const result = await res.json();
+                    if(result.secure_url) {
+                        allPhotos.unshift({ 
+                            caption: item.c, 
+                            title: item.c, 
+                            category: item.cat || "عام", 
+                            url: result.secure_url, 
+                            date: new Date().toISOString(), 
+                            likes: 0, 
+                            views: 0 
+                        });
+                    }
+                } catch(e) { 
+                    console.error(e);
+                    showToast('فشل رفع صورة', 'error');
                 }
-            } catch(e) { console.error('خطأ في رفع الصورة:', e); }
+            }
+        }
+        await saveToCloud(); 
+        loadVideos(); 
+        uploadBtn.disabled = false; 
+        uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> رفع الصور';
+        showToast("تم رفع الصور بنجاح ✅", "success");
+        // تفريغ الحقول
+        document.getElementById("photoCaption1").value = ''; 
+        document.getElementById("photoCategory1").value = ''; 
+        document.getElementById("photoFile1").value = '';
+        document.getElementById("photoCaption2").value = ''; 
+        document.getElementById("photoCategory2").value = ''; 
+        document.getElementById("photoFile2").value = '';
+    }
+
+    // ========== دوال تسجيل الدخول والإغلاق ==========
+    function adminLogin() {
+        if (document.getElementById("adminUser").value === "admin" && document.getElementById("adminPass").value === "1256") {
+            isAdmin = true;
+            closeAllModals();
+            document.getElementById("adminPanel").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            // تحديث كل الأقسام
+            renderAdminVideoList();
+            renderAdminPhotoList();
+            updateDashboardChart();
+            updateDetailedStats();
+        } else { 
+            showToast("خطأ في البيانات", "error"); 
         }
     }
-    await saveToCloud(); loadVideos(); uploadBtn.disabled = false; uploadBtn.innerHTML = 'رفع الصور';
-    showToast("تم رفع الصور بنجاح ✅", "success");
-    document.getElementById("photoCaption1").value = ''; document.getElementById("photoCategory1").value = '';
-    document.getElementById("photoCaption2").value = ''; document.getElementById("photoCategory2").value = '';
-    document.getElementById("photoFile1").value = ''; document.getElementById("photoFile2").value = '';
-}
 
-/* ================== الإحصائيات الحقيقية (1=1) ================== */
-function updateRealStats() {
-    const realVideoViews = allVideos.reduce((sum, v) => sum + (v.views || 0), 0);
-    const realVideoLikes = allVideos.reduce((sum, v) => sum + (v.likes || 0), 0);
-    const realPhotoViews = allPhotos.reduce((sum, p) => sum + (p.views || 0), 0);
-    const realPhotoLikes = allPhotos.reduce((sum, p) => sum + (p.likes || 0), 0);
-    document.getElementById('realVideoCount').textContent = allVideos.length;
-    document.getElementById('realPhotoCount').textContent = allPhotos.length;
-    document.getElementById('realTotalViews').textContent = (realVideoViews + realPhotoViews).toLocaleString();
-    document.getElementById('realTotalLikes').textContent = (realVideoLikes + realPhotoLikes).toLocaleString();
-    const topVideoViews = [...allVideos].sort((a,b) => (b.views||0) - (a.views||0))[0];
-    const topVideoLikes = [...allVideos].sort((a,b) => (b.likes||0) - (a.likes||0))[0];
-    document.getElementById('realTopVideoViews').innerHTML = topVideoViews ? `${topVideoViews.title.substring(0,20)} (${(topVideoViews.views||0).toLocaleString()})` : '-';
-    document.getElementById('realTopVideoLikes').innerHTML = topVideoLikes ? `${topVideoLikes.title.substring(0,20)} (${(topVideoLikes.likes||0).toLocaleString()})` : '-';
-    const topPhotoViews = [...allPhotos].sort((a,b) => (b.views||0) - (a.views||0))[0];
-    const topPhotoLikes = [...allPhotos].sort((a,b) => (b.likes||0) - (a.likes||0))[0];
-    document.getElementById('realTopPhotoViews').innerHTML = topPhotoViews ? `${(topPhotoViews.caption||topPhotoViews.title||'').substring(0,20)} (${(topPhotoViews.views||0).toLocaleString()})` : '-';
-    document.getElementById('realTopPhotoLikes').innerHTML = topPhotoLikes ? `${(topPhotoLikes.caption||topPhotoLikes.title||'').substring(0,20)} (${(topPhotoLikes.likes||0).toLocaleString()})` : '-';
-}
+    function adminLogout() {
+        isAdmin = false;
+        closeAllModals();
+        loadVideos(); // إعادة تحميل الصفحة الرئيسية
+    }
 
-function adminLogin() {
-    if (document.getElementById("adminUser").value === "admin" && document.getElementById("adminPass").value === "1256") {
-        isAdmin = true; closeAllModals(); document.getElementById("adminPanel").style.display = "block"; document.getElementById("overlay").style.display = "block"; renderAdminVideoList(); renderAdminPhotoList();
-    } else { showToast("خطأ في البيانات", "error"); }
-}
-function adminLogout() { isAdmin = false; closeAllModals(); loadVideos(); }
-function closeAllModals() { document.getElementById("overlay").style.display = "none"; document.getElementById("adminLogin").style.display = "none"; document.getElementById("adminPanel").style.display = "none"; }
-function setSortFilter(f) { currentSortFilter = f; document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); applyFiltersAndRender(); }
-function filterByCategory(c) { currentCategory = c; renderCategories(); applyFiltersAndRender(); }
-function renderCategories() {
-    const categories = ['الكل', ...new Set(allVideos.map(v => v.category || 'غير مصنف'))];
-    document.getElementById("categoriesContainer").innerHTML = categories.map(cat => `<div class="category-chip ${currentCategory === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">${cat}</div>`).join('');
-}
-function showToast(m, t) { const toast = document.getElementById("toast"); toast.textContent = m; toast.className = `toast ${t} show`; setTimeout(() => toast.className = "toast", 3000); }
+    function closeAllModals() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("adminLogin").style.display = "none";
+        document.getElementById("adminPanel").style.display = "none";
+    }
 
-document.getElementById("searchBar").addEventListener("input", function(e) {
-    if (this.value === ADMIN_SECRET) { document.getElementById("overlay").style.display = "block"; document.getElementById("adminLogin").style.display = "block"; this.value = ""; return; }
-    const val = this.value.toLowerCase();
-    renderVideos(allVideos.filter(v => v.title.toLowerCase().includes(val)));
-});
+    // ========== كشف دخول الأدمن عبر البحث ==========
+    document.getElementById("searchBar").addEventListener("input", function(e) {
+        if (this.value === ADMIN_SECRET) {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("adminLogin").style.display = "block";
+            this.value = "";
+            return;
+        }
+        const val = this.value.toLowerCase();
+        renderVideos(allVideos.filter(v => v.title.toLowerCase().includes(val)));
+    });
 
-document.addEventListener("DOMContentLoaded", () => { initializeVisitorCounter(); loadVideos(); });
+    // ========== التحميل الأولي ==========
+    document.addEventListener("DOMContentLoaded", () => {
+        initializeVisitorCounter();
+        loadVideos();
+    });
+
+    // ========== تحذير +18 ==========
+    (function() {
+        const ageWarning = document.getElementById('ageWarning');
+        const enterBtn = document.getElementById('enterSite');
+        const leaveBtn = document.getElementById('leaveSite');
+
+        if (localStorage.getItem('ageVerified') === 'true') {
+            ageWarning.style.display = 'none';
+        }
+
+        enterBtn.addEventListener('click', () => {
+            ageWarning.style.display = 'none';
+            localStorage.setItem('ageVerified', 'true');
+        });
+
+        leaveBtn.addEventListener('click', () => {
+            window.location.href = "https://www.google.com";
+        });
+    })();
 </script>
 </body>
 </html>
